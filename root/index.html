@@ -24,9 +24,8 @@
     h1 {
       font-size: 3rem;
       margin-bottom: 10px;
-      animation: fadeInDown 1s ease-out;
+      animation: fadeInDown 1s ease-out forwards;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-      will-change: transform, opacity;
     }
 
     p {
@@ -35,7 +34,6 @@
       opacity: 0;
       animation: fadeIn 1.5s ease-out forwards;
       animation-delay: 0.5s;
-      will-change: transform, opacity;
     }
 
     /* Buttons container */
@@ -57,7 +55,6 @@
       transition: background 0.3s ease, transform 0.3s ease;
       opacity: 0;
       animation: fadeInUp 1.5s ease-out forwards;
-      will-change: transform, opacity;
     }
 
     /* Offer button */
