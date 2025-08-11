@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechWoofer.com is a premium domain available for purchase. Make an offer or buy instantly on Atom.">
   <title>TechWoofer.com - Domain for Sale</title>
+  <link rel="preload" as="image" href="https://www.transparenttextures.com/patterns/stardust.png">
   <style>
     body {
       margin: 0;
@@ -18,20 +20,35 @@
       text-align: center;
       overflow: hidden;
     }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 10px;
       animation: fadeInDown 1s ease-out;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      will-change: transform, opacity;
     }
+
     p {
       font-size: 1.2rem;
       margin-bottom: 20px;
       opacity: 0;
       animation: fadeIn 1.5s ease-out forwards;
       animation-delay: 0.5s;
+      will-change: transform, opacity;
     }
-    a {
-      background: #ff9800;
+
+    /* Buttons container */
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Button base style */
+    .btn {
       color: white;
       padding: 14px 28px;
       text-decoration: none;
@@ -40,20 +57,38 @@
       transition: background 0.3s ease, transform 0.3s ease;
       opacity: 0;
       animation: fadeInUp 1.5s ease-out forwards;
+      will-change: transform, opacity;
+    }
+
+    /* Offer button */
+    .offer {
+      background: #ff9800;
       animation-delay: 1s;
     }
-    a:hover {
+    .offer:hover {
       background: #e68900;
       transform: scale(1.05);
     }
+
+    /* Buy button */
+    .buy {
+      background: #4CAF50;
+      animation-delay: 1.5s;
+    }
+    .buy:hover {
+      background: #43a047;
+      transform: scale(1.05);
+    }
+
     footer {
       position: absolute;
       bottom: 15px;
       font-size: 0.9rem;
       opacity: 0.6;
       animation: fadeIn 2s ease-out forwards;
-      animation-delay: 1.5s;
+      animation-delay: 2s;
     }
+
     @keyframes fadeIn {
       to { opacity: 1; }
     }
@@ -65,17 +100,31 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .particles {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      background-size: 400px 400px;
       opacity: 0.1;
       animation: moveBackground 30s linear infinite;
       z-index: -1;
     }
+
     @keyframes moveBackground {
       from { background-position: 0 0; }
       to { background-position: 1000px 1000px; }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 500px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -83,7 +132,10 @@
   <div class="particles"></div>
   <h1>TechWoofer.com</h1>
   <p>This premium domain is available for purchase.</p>
-  <a href="mailto:miralbenizi7@gmail.com?subject=Offer%20for%20TechWoofer.com">Make an Offer</a>
+  <div class="buttons">
+    <a href="mailto:miralbenizi7@gmail.com?subject=Offer%20for%20TechWoofer.com" class="btn offer">Make an Offer</a>
+    <a href="https://www.atom.com/name/TechWoofer" target="_blank" rel="noopener noreferrer" class="btn buy">Buy Now on Atom</a>
+  </div>
   <footer>© 2025 TechWoofer.com</footer>
 </body>
 </html>
