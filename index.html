@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TechWoofer — Exclusive US Offers</title>
-  <meta name="description" content="Exclusive US-only affiliate offers from TechWoofer. Claim your Mystery Samples Box (Android) or start streaming with Opera Streaming (Desktop)." />
+  <meta name="description" content="Exclusive US-only affiliate offers from TechWoofer. Claim your Mystery Samples Box, Start Streaming with Opera, or Win a $100 Nike Gift Card." />
   <link rel="canonical" href="https://techwoofer.com/" />
-  
-  <!-- ✅ Ahrefs Analytics (privacy-friendly) -->
+
+  <!-- ✅ Ahrefs Analytics -->
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="DcPaRDuMMZnQbIoxjVQ0Mg" async></script>
-  
+
   <style>
     body {
       margin: 0;
@@ -93,13 +93,23 @@
       <h2>💻 Start Streaming with Opera Streaming!</h2>
       <div><span class="badge">Desktop</span><span class="badge">United States</span></div>
       <p>Enter your information now to get started streaming. Offer for desktop users in the United States.</p>
-      <ul class="muted">
-      </ul>
       <div class="cta">
         <a id="claimOpera" class="button" href="#" aria-disabled="true">🚀 Start Streaming</a>
         <span class="muted">Offer ID: 73048</span>
       </div>
       <div class="note" id="noteOpera">Detecting device & location…</div>
+    </section>
+
+    <!-- Offer 3: Nike Gift Card -->
+    <section class="offer" id="offer3">
+      <h2>🎟️ Claim your $100 Nike Gift Card Now!</h2>
+      <div><span class="badge">Apple iOS</span><span class="badge">United States</span></div>
+      <p>Enter your information now for a chance to win a $100 Nike Gift Card. Offer for iOS users in the United States.</p>
+      <div class="cta">
+        <a id="claimNike" class="button" href="#" aria-disabled="true">🎁 Claim Gift Card</a>
+        <span class="muted">Offer ID: 71672</span>
+      </div>
+      <div class="note" id="noteNike">Detecting device & location…</div>
     </section>
   </main>
 
@@ -109,18 +119,23 @@
   </footer>
 
   <script>
-    // Affiliate links
+    // === Affiliate Links ===
     const MYSTERY_URL = "https://singingfiles.com/show.php?l=0&u=2465402&id=70458";
-    const OPERA_URL = "https://singingfiles.com/show.php?l=0&u=2465402&id=73048";
+    const OPERA_URL   = "https://singingfiles.com/show.php?l=0&u=2465402&id=73048";
+    const NIKE_URL    = "https://singingfiles.com/show.php?l=0&u=2465402&id=71672";
 
     // Elements
     const mysteryBtn = document.getElementById("claimMystery");
     const operaBtn = document.getElementById("claimOpera");
+    const nikeBtn = document.getElementById("claimNike");
     const noteMystery = document.getElementById("noteMystery");
     const noteOpera = document.getElementById("noteOpera");
+    const noteNike = document.getElementById("noteNike");
 
+    // Device checks
     function isAndroid() { return /Android/i.test(navigator.userAgent); }
     function isDesktop() { return !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
+    function isiOS() { return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
 
     function looksLikeUSTimezone() {
       try {
@@ -139,7 +154,7 @@
         if (lat >= 24 && lat <= 49.5 && lng >= -125 && lng <= -66.5) inUS = true;
       } catch(e){}
 
-      // Offer 1: Mystery Samples (Android only)
+      // Offer 1: Mystery Samples (Android)
       if (isAndroid() && inUS) {
         mysteryBtn.href = MYSTERY_URL;
         mysteryBtn.setAttribute("aria-disabled","false");
@@ -148,13 +163,22 @@
         noteMystery.textContent = "This offer is available only to Android users in the United States.";
       }
 
-      // Offer 2: Opera Streaming (Desktop only)
+      // Offer 2: Opera Streaming (Desktop)
       if (isDesktop() && inUS) {
         operaBtn.href = OPERA_URL;
         operaBtn.setAttribute("aria-disabled","false");
         noteOpera.textContent = "✅ Desktop + US detected. You may start streaming.";
       } else {
         noteOpera.textContent = "This offer is available only to desktop users in the United States.";
+      }
+
+      // Offer 3: Nike Gift Card (iOS)
+      if (isiOS() && inUS) {
+        nikeBtn.href = NIKE_URL;
+        nikeBtn.setAttribute("aria-disabled","false");
+        noteNike.textContent = "✅ iOS + US detected. You may claim your Nike Gift Card.";
+      } else {
+        noteNike.textContent = "This offer is available only to Apple iOS users in the United States.";
       }
     }
 
