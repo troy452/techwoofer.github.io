@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TechWoofer — Exclusive US Offers</title>
-  <meta name="description" content="Exclusive affiliate offers from TechWoofer. Claim your Mystery Samples Box, Start Streaming with Opera, or Win a $100 Nike Gift Card." />
+  <meta name="description" content="Exclusive US-only affiliate offers from TechWoofer. Claim your Mystery Box, Start Streaming with Opera, Win a Nike Gift Card, or Enter to Win a $1000 Grocery Card." />
   <link rel="canonical" href="https://techwoofer.com/" />
 
   <!-- ✅ Ahrefs Analytics -->
@@ -39,14 +39,7 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
     .offer h2 {margin-top: 0; color: #fff;}
-    .badge {
-      display:inline-block;
-      background:#1e293b;
-      padding:4px 8px;
-      border-radius:6px;
-      font-size:0.8rem;
-      margin-right:6px;
-    }
+    .badge {display:inline-block;background:#1e293b;padding:4px 8px;border-radius:6px;font-size:0.8rem;margin-right:6px;}
     .muted {color: #9ca3af; font-size: 0.9rem;}
     .cta {
       margin-top: 1rem;
@@ -62,11 +55,12 @@
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
-      transition: background 0.2s ease-in-out;
     }
-    .button:hover {
-      background: #1d4ed8;
+    .button[aria-disabled="true"] {
+      opacity: 0.4;
+      pointer-events: none;
     }
+    .note {margin-top: 0.5rem; font-size: 0.85rem; color: #9ca3af;}
     footer {
       text-align: center;
       color: #9ca3af;
@@ -77,42 +71,69 @@
 </head>
 <body>
   <header>
-    <h1>TechWoofer — Exclusive Offers</h1>
-    <p>Discover limited affiliate deals available only for US audiences.</p>
+    <h1>TechWoofer — US Exclusive Offers</h1>
+    <p>Discover limited affiliate deals available only in the United States.</p>
   </header>
 
   <main>
-    <!-- Offer 1: Mystery Samples Box -->
-    <section class="offer">
+    <!-- Offer 1: Android Mystery Samples Box -->
+    <section class="offer" id="offer1">
       <h2>🎁 Mystery Samples Box</h2>
       <div><span class="badge">Android</span><span class="badge">United States</span></div>
       <p>Check out your Mystery Samples Box — exclusive for Android users in the United States.</p>
       <div class="cta">
-        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=70458" target="_blank" rel="noopener noreferrer">✅ Claim My Mystery Box</a>
+        <a id="claimMystery" class="button" href="#" aria-disabled="true">✅ Claim My Mystery Box</a>
         <span class="muted">Offer ID: 70458</span>
       </div>
+      <div class="note" id="noteMystery">Detecting device & location…</div>
     </section>
 
     <!-- Offer 2: Opera Streaming -->
-    <section class="offer">
+    <section class="offer" id="offer2">
       <h2>💻 Start Streaming with Opera Streaming!</h2>
       <div><span class="badge">Desktop</span><span class="badge">United States</span></div>
       <p>Enter your information now to get started streaming. Offer for desktop users in the United States.</p>
       <div class="cta">
-        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=73048" target="_blank" rel="noopener noreferrer">🚀 Start Streaming</a>
+        <a id="claimOpera" class="button" href="#" aria-disabled="true">🚀 Start Streaming</a>
         <span class="muted">Offer ID: 73048</span>
       </div>
+      <div class="note" id="noteOpera">Detecting device & location…</div>
     </section>
 
     <!-- Offer 3: Nike Gift Card -->
-    <section class="offer">
+    <section class="offer" id="offer3">
       <h2>🎟️ Claim your $100 Nike Gift Card Now!</h2>
       <div><span class="badge">Apple iOS</span><span class="badge">United States</span></div>
       <p>Enter your information now for a chance to win a $100 Nike Gift Card. Offer for iOS users in the United States.</p>
       <div class="cta">
-        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=71672" target="_blank" rel="noopener noreferrer">🎁 Claim Gift Card</a>
+        <a id="claimNike" class="button" href="#" aria-disabled="true">🎁 Claim Gift Card</a>
         <span class="muted">Offer ID: 71672</span>
       </div>
+      <div class="note" id="noteNike">Detecting device & location…</div>
+    </section>
+
+    <!-- Offer 4: $1000 Grocery Card -->
+    <section class="offer" id="offer4">
+      <h2>🛒 Enter for a $1000 Grocery Card Now!</h2>
+      <div><span class="badge">Desktop</span><span class="badge">United States</span></div>
+      <p>Enter your information now for a chance to win a $1000 Grocery Card. Offer for desktop users in the United States.</p>
+      <div class="cta">
+        <a id="claimGrocery" class="button" href="#" aria-disabled="true">🥇 Enter Now</a>
+        <span class="muted">Offer ID: 72939</span>
+      </div>
+      <div class="note" id="noteGrocery">Detecting device & location…</div>
+    </section>
+
+    <!-- Offer 5: iOS Mystery Box -->
+    <section class="offer" id="offer5">
+      <h2>📦 Claim your Mystery Box Now!</h2>
+      <div><span class="badge">Apple iOS</span><span class="badge">United States</span></div>
+      <p>Enter your information now for a chance to win your Mystery Box. Offer for iOS users in the United States.</p>
+      <div class="cta">
+        <a id="claimMysteryIOS" class="button" href="#" aria-disabled="true">🎉 Claim Now</a>
+        <span class="muted">Offer ID: 70936</span>
+      </div>
+      <div class="note" id="noteMysteryIOS">Detecting device & location…</div>
     </section>
   </main>
 
@@ -120,5 +141,97 @@
     Affiliate Disclosure: TechWoofer may earn commissions on qualifying actions.  
     Offers available only in the United States.
   </footer>
+
+  <script>
+    // === Affiliate Links ===
+    const MYSTERY_URL     = "https://singingfiles.com/show.php?l=0&u=2465402&id=70458";
+    const OPERA_URL       = "https://singingfiles.com/show.php?l=0&u=2465402&id=73048";
+    const NIKE_URL        = "https://singingfiles.com/show.php?l=0&u=2465402&id=71672";
+    const GROCERY_URL     = "https://singingfiles.com/show.php?l=0&u=2465402&id=72939";
+    const MYSTERY_IOS_URL = "https://singingfiles.com/show.php?l=0&u=2465402&id=70936";
+
+    // Elements
+    const mysteryBtn = document.getElementById("claimMystery");
+    const operaBtn = document.getElementById("claimOpera");
+    const nikeBtn = document.getElementById("claimNike");
+    const groceryBtn = document.getElementById("claimGrocery");
+    const mysteryIOSBtn = document.getElementById("claimMysteryIOS");
+
+    const noteMystery = document.getElementById("noteMystery");
+    const noteOpera = document.getElementById("noteOpera");
+    const noteNike = document.getElementById("noteNike");
+    const noteGrocery = document.getElementById("noteGrocery");
+    const noteMysteryIOS = document.getElementById("noteMysteryIOS");
+
+    // Device checks
+    function isAndroid() { return /Android/i.test(navigator.userAgent); }
+    function isDesktop() { return !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
+    function isiOS() { return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
+
+    function looksLikeUSTimezone() {
+      try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+        return tz.startsWith("America/") || tz.startsWith("US/");
+      } catch(e) { return false; }
+    }
+
+    async function detectAndSet() {
+      let inUS = looksLikeUSTimezone();
+      try {
+        const pos = await new Promise((res, rej)=>{
+          navigator.geolocation.getCurrentPosition(res, rej, {timeout:6000});
+        });
+        const lat = pos.coords.latitude, lng = pos.coords.longitude;
+        if (lat >= 24 && lat <= 49.5 && lng >= -125 && lng <= -66.5) inUS = true;
+      } catch(e){}
+
+      // Offer 1: Mystery Samples (Android)
+      if (isAndroid() && inUS) {
+        mysteryBtn.href = MYSTERY_URL;
+        mysteryBtn.setAttribute("aria-disabled","false");
+        noteMystery.textContent = "✅ Android + US detected. You may claim your Mystery Box.";
+      } else {
+        noteMystery.textContent = "This offer is available only to Android users in the United States.";
+      }
+
+      // Offer 2: Opera Streaming (Desktop)
+      if (isDesktop() && inUS) {
+        operaBtn.href = OPERA_URL;
+        operaBtn.setAttribute("aria-disabled","false");
+        noteOpera.textContent = "✅ Desktop + US detected. You may start streaming.";
+      } else {
+        noteOpera.textContent = "This offer is available only to desktop users in the United States.";
+      }
+
+      // Offer 3: Nike Gift Card (iOS)
+      if (isiOS() && inUS) {
+        nikeBtn.href = NIKE_URL;
+        nikeBtn.setAttribute("aria-disabled","false");
+        noteNike.textContent = "✅ iOS + US detected. You may claim your Nike Gift Card.";
+      } else {
+        noteNike.textContent = "This offer is available only to Apple iOS users in the United States.";
+      }
+
+      // Offer 4: Grocery Card (Desktop)
+      if (isDesktop() && inUS) {
+        groceryBtn.href = GROCERY_URL;
+        groceryBtn.setAttribute("aria-disabled","false");
+        noteGrocery.textContent = "✅ Desktop + US detected. You may enter for the $1000 Grocery Card.";
+      } else {
+        noteGrocery.textContent = "This offer is available only to desktop users in the United States.";
+      }
+
+      // Offer 5: Mystery Box (iOS)
+      if (isiOS() && inUS) {
+        mysteryIOSBtn.href = MYSTERY_IOS_URL;
+        mysteryIOSBtn.setAttribute("aria-disabled","false");
+        noteMysteryIOS.textContent = "✅ iOS + US detected. You may claim your Mystery Box.";
+      } else {
+        noteMysteryIOS.textContent = "This offer is available only to iOS users in the United States.";
+      }
+    }
+
+    detectAndSet();
+  </script>
 </body>
 </html>
