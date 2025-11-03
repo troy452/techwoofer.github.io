@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TechWoofer — Exclusive US Offers</title>
-  <meta name="description" content="Exclusive US-only affiliate offers from TechWoofer. Claim your Mystery Box, Start Streaming with Opera, Win a Nike Gift Card, or Enter to Win a $1000 Grocery Card." />
+  <meta name="description" content="Exclusive US-only affiliate offers from TechWoofer. Claim your Mystery Box, Start Streaming with Opera, Win Gift Cards, or Earn Bonuses Online." />
   <link rel="canonical" href="https://techwoofer.com/" />
 
   <!-- ✅ Ahrefs Analytics -->
@@ -135,6 +135,18 @@
       </div>
       <div class="note" id="noteMysteryIOS">Detecting device & location…</div>
     </section>
+
+    <!-- Offer 6: Click Box - Fix CPL -->
+    <section class="offer" id="offer6">
+      <h2>🤑 Click Box - Fix CPL TAP TO EARN YOUR BONUS</h2>
+      <div><span class="badge">All Devices</span><span class="badge">United States</span></div>
+      <p>Tap below to earn your bonus. Available for all users in the United States.</p>
+      <div class="cta">
+        <a id="claimClickBox" class="button" href="#" aria-disabled="true">💰 Tap to Earn</a>
+        <span class="muted">Offer ID: 10135945</span>
+      </div>
+      <div class="note" id="noteClickBox">Detecting location…</div>
+    </section>
   </main>
 
   <footer>
@@ -149,21 +161,27 @@
     const NIKE_URL        = "https://singingfiles.com/show.php?l=0&u=2465402&id=71672";
     const GROCERY_URL     = "https://singingfiles.com/show.php?l=0&u=2465402&id=72939";
     const MYSTERY_IOS_URL = "https://singingfiles.com/show.php?l=0&u=2465402&id=70936";
+    const CLICKBOX_URL    = "https://ldl1.com/link?z=10135945&var={SOURCE_ID}&ymid={CLICK_ID}";
 
     // Elements
-    const mysteryBtn = document.getElementById("claimMystery");
-    const operaBtn = document.getElementById("claimOpera");
-    const nikeBtn = document.getElementById("claimNike");
-    const groceryBtn = document.getElementById("claimGrocery");
-    const mysteryIOSBtn = document.getElementById("claimMysteryIOS");
+    const elements = {
+      mysteryBtn: document.getElementById("claimMystery"),
+      operaBtn: document.getElementById("claimOpera"),
+      nikeBtn: document.getElementById("claimNike"),
+      groceryBtn: document.getElementById("claimGrocery"),
+      mysteryIOSBtn: document.getElementById("claimMysteryIOS"),
+      clickBoxBtn: document.getElementById("claimClickBox")
+    };
 
-    const noteMystery = document.getElementById("noteMystery");
-    const noteOpera = document.getElementById("noteOpera");
-    const noteNike = document.getElementById("noteNike");
-    const noteGrocery = document.getElementById("noteGrocery");
-    const noteMysteryIOS = document.getElementById("noteMysteryIOS");
+    const notes = {
+      mystery: document.getElementById("noteMystery"),
+      opera: document.getElementById("noteOpera"),
+      nike: document.getElementById("noteNike"),
+      grocery: document.getElementById("noteGrocery"),
+      mysteryIOS: document.getElementById("noteMysteryIOS"),
+      clickBox: document.getElementById("noteClickBox")
+    };
 
-    // Device checks
     function isAndroid() { return /Android/i.test(navigator.userAgent); }
     function isDesktop() { return !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
     function isiOS() { return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
@@ -185,49 +203,44 @@
         if (lat >= 24 && lat <= 49.5 && lng >= -125 && lng <= -66.5) inUS = true;
       } catch(e){}
 
-      // Offer 1: Mystery Samples (Android)
-      if (isAndroid() && inUS) {
-        mysteryBtn.href = MYSTERY_URL;
-        mysteryBtn.setAttribute("aria-disabled","false");
-        noteMystery.textContent = "✅ Android + US detected. You may claim your Mystery Box.";
-      } else {
-        noteMystery.textContent = "This offer is available only to Android users in the United States.";
-      }
+      // === Offer rules ===
+      const activate = (btn, note, url, condition, msgOK, msgFail) => {
+        if (condition && inUS) {
+          btn.href = url;
+          btn.setAttribute("aria-disabled","false");
+          note.textContent = msgOK;
+        } else {
+          note.textContent = msgFail;
+        }
+      };
 
-      // Offer 2: Opera Streaming (Desktop)
-      if (isDesktop() && inUS) {
-        operaBtn.href = OPERA_URL;
-        operaBtn.setAttribute("aria-disabled","false");
-        noteOpera.textContent = "✅ Desktop + US detected. You may start streaming.";
-      } else {
-        noteOpera.textContent = "This offer is available only to desktop users in the United States.";
-      }
+      activate(elements.mysteryBtn, notes.mystery, MYSTERY_URL, isAndroid(),
+        "✅ Android + US detected. You may claim your Mystery Box.",
+        "This offer is available only to Android users in the United States.");
 
-      // Offer 3: Nike Gift Card (iOS)
-      if (isiOS() && inUS) {
-        nikeBtn.href = NIKE_URL;
-        nikeBtn.setAttribute("aria-disabled","false");
-        noteNike.textContent = "✅ iOS + US detected. You may claim your Nike Gift Card.";
-      } else {
-        noteNike.textContent = "This offer is available only to Apple iOS users in the United States.";
-      }
+      activate(elements.operaBtn, notes.opera, OPERA_URL, isDesktop(),
+        "✅ Desktop + US detected. You may start streaming.",
+        "This offer is available only to desktop users in the United States.");
 
-      // Offer 4: Grocery Card (Desktop)
-      if (isDesktop() && inUS) {
-        groceryBtn.href = GROCERY_URL;
-        groceryBtn.setAttribute("aria-disabled","false");
-        noteGrocery.textContent = "✅ Desktop + US detected. You may enter for the $1000 Grocery Card.";
-      } else {
-        noteGrocery.textContent = "This offer is available only to desktop users in the United States.";
-      }
+      activate(elements.nikeBtn, notes.nike, NIKE_URL, isiOS(),
+        "✅ iOS + US detected. You may claim your Nike Gift Card.",
+        "This offer is available only to iOS users in the United States.");
 
-      // Offer 5: Mystery Box (iOS)
-      if (isiOS() && inUS) {
-        mysteryIOSBtn.href = MYSTERY_IOS_URL;
-        mysteryIOSBtn.setAttribute("aria-disabled","false");
-        noteMysteryIOS.textContent = "✅ iOS + US detected. You may claim your Mystery Box.";
+      activate(elements.groceryBtn, notes.grocery, GROCERY_URL, isDesktop(),
+        "✅ Desktop + US detected. You may enter for the $1000 Grocery Card.",
+        "This offer is available only to desktop users in the United States.");
+
+      activate(elements.mysteryIOSBtn, notes.mysteryIOS, MYSTERY_IOS_URL, isiOS(),
+        "✅ iOS + US detected. You may claim your Mystery Box.",
+        "This offer is available only to iOS users in the United States.");
+
+      // Click Box — available to all devices in US
+      if (inUS) {
+        elements.clickBoxBtn.href = CLICKBOX_URL;
+        elements.clickBoxBtn.setAttribute("aria-disabled","false");
+        notes.clickBox.textContent = "✅ US detected. Tap to earn your bonus!";
       } else {
-        noteMysteryIOS.textContent = "This offer is available only to iOS users in the United States.";
+        notes.clickBox.textContent = "This offer is available only in the United States.";
       }
     }
 
