@@ -55,12 +55,11 @@
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
+      transition: background 0.3s;
     }
-    .button[aria-disabled="true"] {
-      opacity: 0.4;
-      pointer-events: none;
+    .button:hover {
+      background: #1d4ed8;
     }
-    .note {margin-top: 0.5rem; font-size: 0.85rem; color: #9ca3af;}
     footer {
       text-align: center;
       color: #9ca3af;
@@ -76,76 +75,58 @@
   </header>
 
   <main>
-    <!-- Offer 1: Android Mystery Samples Box -->
-    <section class="offer" id="offer1">
+    <section class="offer">
       <h2>🎁 Mystery Samples Box</h2>
       <div><span class="badge">Android</span><span class="badge">United States</span></div>
       <p>Check out your Mystery Samples Box — exclusive for Android users in the United States.</p>
       <div class="cta">
-        <a id="claimMystery" class="button" href="#" aria-disabled="true">✅ Claim My Mystery Box</a>
-        <span class="muted">Offer ID: 70458</span>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=70458" target="_blank">✅ Claim My Mystery Box</a>
       </div>
-      <div class="note" id="noteMystery">Detecting device & location…</div>
     </section>
 
-    <!-- Offer 2: Opera Streaming -->
-    <section class="offer" id="offer2">
+    <section class="offer">
       <h2>💻 Start Streaming with Opera Streaming!</h2>
       <div><span class="badge">Desktop</span><span class="badge">United States</span></div>
       <p>Enter your information now to get started streaming. Offer for desktop users in the United States.</p>
       <div class="cta">
-        <a id="claimOpera" class="button" href="#" aria-disabled="true">🚀 Start Streaming</a>
-        <span class="muted">Offer ID: 73048</span>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=73048" target="_blank">🚀 Start Streaming</a>
       </div>
-      <div class="note" id="noteOpera">Detecting device & location…</div>
     </section>
 
-    <!-- Offer 3: Nike Gift Card -->
-    <section class="offer" id="offer3">
+    <section class="offer">
       <h2>🎟️ Claim your $100 Nike Gift Card Now!</h2>
       <div><span class="badge">Apple iOS</span><span class="badge">United States</span></div>
-      <p>Enter your information now for a chance to win a $100 Nike Gift Card. Offer for iOS users in the United States.</p>
+      <p>Enter your information now for a chance to win a $100 Nike Gift Card.</p>
       <div class="cta">
-        <a id="claimNike" class="button" href="#" aria-disabled="true">🎁 Claim Gift Card</a>
-        <span class="muted">Offer ID: 71672</span>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=71672" target="_blank">🎁 Claim Gift Card</a>
       </div>
-      <div class="note" id="noteNike">Detecting device & location…</div>
     </section>
 
-    <!-- Offer 4: $1000 Grocery Card -->
-    <section class="offer" id="offer4">
+    <section class="offer">
       <h2>🛒 Enter for a $1000 Grocery Card Now!</h2>
       <div><span class="badge">Desktop</span><span class="badge">United States</span></div>
-      <p>Enter your information now for a chance to win a $1000 Grocery Card. Offer for desktop users in the United States.</p>
+      <p>Enter your information now for a chance to win a $1000 Grocery Card.</p>
       <div class="cta">
-        <a id="claimGrocery" class="button" href="#" aria-disabled="true">🥇 Enter Now</a>
-        <span class="muted">Offer ID: 72939</span>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=72939" target="_blank">🥇 Enter Now</a>
       </div>
-      <div class="note" id="noteGrocery">Detecting device & location…</div>
     </section>
 
-    <!-- Offer 5: iOS Mystery Box -->
-    <section class="offer" id="offer5">
+    <section class="offer">
       <h2>📦 Claim your Mystery Box Now!</h2>
       <div><span class="badge">Apple iOS</span><span class="badge">United States</span></div>
-      <p>Enter your information now for a chance to win your Mystery Box. Offer for iOS users in the United States.</p>
+      <p>Enter your information now for a chance to win your Mystery Box.</p>
       <div class="cta">
-        <a id="claimMysteryIOS" class="button" href="#" aria-disabled="true">🎉 Claim Now</a>
-        <span class="muted">Offer ID: 70936</span>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=70936" target="_blank">🎉 Claim Now</a>
       </div>
-      <div class="note" id="noteMysteryIOS">Detecting device & location…</div>
     </section>
 
-    <!-- Offer 6: Click Box - Fix CPL -->
-    <section class="offer" id="offer6">
+    <section class="offer">
       <h2>🤑 Click Box - Fix CPL TAP TO EARN YOUR BONUS</h2>
       <div><span class="badge">All Devices</span><span class="badge">United States</span></div>
       <p>Tap below to earn your bonus. Available for all users in the United States.</p>
       <div class="cta">
-        <a id="claimClickBox" class="button" href="#" aria-disabled="true">💰 Tap to Earn</a>
-        <span class="muted">Offer ID: 10135945</span>
+        <a class="button" href="https://ldl1.com/link?z=10135945&var={SOURCE_ID}&ymid={CLICK_ID}" target="_blank">💰 Tap to Earn</a>
       </div>
-      <div class="note" id="noteClickBox">Detecting location…</div>
     </section>
   </main>
 
@@ -153,98 +134,5 @@
     Affiliate Disclosure: TechWoofer may earn commissions on qualifying actions.  
     Offers available only in the United States.
   </footer>
-
-  <script>
-    // === Affiliate Links ===
-    const MYSTERY_URL     = "https://singingfiles.com/show.php?l=0&u=2465402&id=70458";
-    const OPERA_URL       = "https://singingfiles.com/show.php?l=0&u=2465402&id=73048";
-    const NIKE_URL        = "https://singingfiles.com/show.php?l=0&u=2465402&id=71672";
-    const GROCERY_URL     = "https://singingfiles.com/show.php?l=0&u=2465402&id=72939";
-    const MYSTERY_IOS_URL = "https://singingfiles.com/show.php?l=0&u=2465402&id=70936";
-    const CLICKBOX_URL    = "https://ldl1.com/link?z=10135945&var={SOURCE_ID}&ymid={CLICK_ID}";
-
-    // Elements
-    const elements = {
-      mysteryBtn: document.getElementById("claimMystery"),
-      operaBtn: document.getElementById("claimOpera"),
-      nikeBtn: document.getElementById("claimNike"),
-      groceryBtn: document.getElementById("claimGrocery"),
-      mysteryIOSBtn: document.getElementById("claimMysteryIOS"),
-      clickBoxBtn: document.getElementById("claimClickBox")
-    };
-
-    const notes = {
-      mystery: document.getElementById("noteMystery"),
-      opera: document.getElementById("noteOpera"),
-      nike: document.getElementById("noteNike"),
-      grocery: document.getElementById("noteGrocery"),
-      mysteryIOS: document.getElementById("noteMysteryIOS"),
-      clickBox: document.getElementById("noteClickBox")
-    };
-
-    function isAndroid() { return /Android/i.test(navigator.userAgent); }
-    function isDesktop() { return !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
-    function isiOS() { return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
-
-    function looksLikeUSTimezone() {
-      try {
-        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-        return tz.startsWith("America/") || tz.startsWith("US/");
-      } catch(e) { return false; }
-    }
-
-    async function detectAndSet() {
-      let inUS = looksLikeUSTimezone();
-      try {
-        const pos = await new Promise((res, rej)=>{
-          navigator.geolocation.getCurrentPosition(res, rej, {timeout:6000});
-        });
-        const lat = pos.coords.latitude, lng = pos.coords.longitude;
-        if (lat >= 24 && lat <= 49.5 && lng >= -125 && lng <= -66.5) inUS = true;
-      } catch(e){}
-
-      // === Offer rules ===
-      const activate = (btn, note, url, condition, msgOK, msgFail) => {
-        if (condition && inUS) {
-          btn.href = url;
-          btn.setAttribute("aria-disabled","false");
-          note.textContent = msgOK;
-        } else {
-          note.textContent = msgFail;
-        }
-      };
-
-      activate(elements.mysteryBtn, notes.mystery, MYSTERY_URL, isAndroid(),
-        "✅ Android + US detected. You may claim your Mystery Box.",
-        "This offer is available only to Android users in the United States.");
-
-      activate(elements.operaBtn, notes.opera, OPERA_URL, isDesktop(),
-        "✅ Desktop + US detected. You may start streaming.",
-        "This offer is available only to desktop users in the United States.");
-
-      activate(elements.nikeBtn, notes.nike, NIKE_URL, isiOS(),
-        "✅ iOS + US detected. You may claim your Nike Gift Card.",
-        "This offer is available only to iOS users in the United States.");
-
-      activate(elements.groceryBtn, notes.grocery, GROCERY_URL, isDesktop(),
-        "✅ Desktop + US detected. You may enter for the $1000 Grocery Card.",
-        "This offer is available only to desktop users in the United States.");
-
-      activate(elements.mysteryIOSBtn, notes.mysteryIOS, MYSTERY_IOS_URL, isiOS(),
-        "✅ iOS + US detected. You may claim your Mystery Box.",
-        "This offer is available only to iOS users in the United States.");
-
-      // Click Box — available to all devices in US
-      if (inUS) {
-        elements.clickBoxBtn.href = CLICKBOX_URL;
-        elements.clickBoxBtn.setAttribute("aria-disabled","false");
-        notes.clickBox.textContent = "✅ US detected. Tap to earn your bonus!";
-      } else {
-        notes.clickBox.textContent = "This offer is available only in the United States.";
-      }
-    }
-
-    detectAndSet();
-  </script>
 </body>
 </html>
