@@ -3,9 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TechWoofer — Exclusive US Offers</title>
-  <meta name="description" content="Exclusive US-only affiliate offers from TechWoofer. Claim your Mystery Box, Start Streaming with Opera, Win Gift Cards, or Earn Bonuses Online." />
+  <title>TechWoofer — Exclusive US Offers & Rewards</title>
+  <meta name="description" content="Claim exclusive U.S.-only affiliate offers — win gift cards, mystery boxes, and bonuses from trusted partners. Discover TechWoofer deals today!" />
   <link rel="canonical" href="https://techwoofer.com/" />
+
+  <!-- ✅ Open Graph & Twitter Meta for Social Sharing -->
+  <meta property="og:title" content="TechWoofer — Exclusive US Offers & Rewards" />
+  <meta property="og:description" content="Claim exclusive U.S.-only affiliate offers — win gift cards, mystery boxes, and bonuses from trusted partners." />
+  <meta property="og:image" content="https://techwoofer.com/preview.jpg" />
+  <meta property="og:url" content="https://techwoofer.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="/favicon.ico" />
 
   <!-- ✅ Ahrefs Analytics -->
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="DcPaRDuMMZnQbIoxjVQ0Mg" async></script>
@@ -13,7 +24,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Inter, Arial, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       background: #0a0f1a;
       color: #f5f7fa;
       -webkit-font-smoothing: antialiased;
@@ -25,6 +36,34 @@
     }
     header h1 {margin: 0; font-size: 2rem;}
     header p {color: #e0e7ff; margin-top: 0.5rem;}
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(145deg, #7c3aed, #2563eb);
+      border-radius: 0 0 20px 20px;
+    }
+    .hero h1 {font-size: 2.4rem; margin-bottom: 1rem; color: #fff;}
+    .hero p {color: #e0e7ff; margin-bottom: 1.5rem; font-size: 1.1rem;}
+    .hero .button {font-size: 1.1rem;}
+
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    nav a {
+      display: inline-block;
+      margin: 0 6px;
+      background: #1e293b;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    nav a:hover {background: #334155;}
+
     main {
       max-width: 960px;
       margin: auto;
@@ -37,9 +76,21 @@
       border-radius: 14px;
       padding: 1.5rem;
       box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .offer:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
     .offer h2 {margin-top: 0; color: #fff;}
-    .badge {display:inline-block;background:#1e293b;padding:4px 8px;border-radius:6px;font-size:0.8rem;margin-right:6px;}
+    .badge {
+      display:inline-block;
+      background:#1e293b;
+      padding:4px 8px;
+      border-radius:6px;
+      font-size:0.8rem;
+      margin-right:6px;
+    }
     .muted {color: #9ca3af; font-size: 0.9rem;}
     .cta {
       margin-top: 1rem;
@@ -57,25 +108,43 @@
       text-decoration: none;
       transition: background 0.3s;
     }
-    .button:hover {
-      background: #1d4ed8;
-    }
+    .button:hover {background: #1d4ed8;}
+
     footer {
       text-align: center;
       color: #9ca3af;
       font-size: 0.85rem;
       margin: 3rem 0 1rem;
     }
+
+    @media (max-width: 600px) {
+      main {padding: 1rem; gap: 1.5rem;}
+      .offer {padding: 1rem;}
+      header h1, .hero h1 {font-size: 1.7rem;}
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>TechWoofer — US Exclusive Offers</h1>
-    <p>Discover limited affiliate deals available only in the United States.</p>
+    <h1>TechWoofer — Exclusive US Offers</h1>
+    <p>Discover verified affiliate deals available only in the United States.</p>
   </header>
 
-  <main>
-    <section class="offer">
+  <section class="hero">
+    <h1>🔥 Unlock Exclusive US Deals & Rewards!</h1>
+    <p>Get access to limited-time offers — claim rewards, gift cards, and bonuses today.</p>
+    <a class="button" href="#offers">Browse Offers</a>
+  </section>
+
+  <nav>
+    <a href="#android">Android</a>
+    <a href="#ios">iOS</a>
+    <a href="#desktop">Desktop</a>
+    <a href="#all">All Offers</a>
+  </nav>
+
+  <main id="offers">
+    <section id="android" class="offer">
       <h2>🎁 Mystery Samples Box</h2>
       <div><span class="badge">Android</span><span class="badge">United States</span></div>
       <p>Check out your Mystery Samples Box — exclusive for Android users in the United States.</p>
@@ -84,55 +153,71 @@
       </div>
     </section>
 
-    <section class="offer">
+    <section id="desktop" class="offer">
       <h2>💻 Start Streaming with Opera Streaming!</h2>
       <div><span class="badge">Desktop</span><span class="badge">United States</span></div>
       <p>Enter your information now to get started streaming. Offer for desktop users in the United States.</p>
       <div class="cta">
-        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=73048" target="_blank">🚀 Start Streaming</a>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=73048" target="_blank">🚀 Start Streaming Instantly</a>
       </div>
     </section>
 
-    <section class="offer">
-      <h2>🎟️ Claim your $100 Nike Gift Card Now!</h2>
+    <section id="ios" class="offer">
+      <h2>🎟️ Claim Your $100 Nike Gift Card</h2>
       <div><span class="badge">Apple iOS</span><span class="badge">United States</span></div>
       <p>Enter your information now for a chance to win a $100 Nike Gift Card.</p>
       <div class="cta">
-        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=71672" target="_blank">🎁 Claim Gift Card</a>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=71672" target="_blank">🎁 Grab $100 Gift Card</a>
       </div>
     </section>
 
     <section class="offer">
-      <h2>🛒 Enter for a $1000 Grocery Card Now!</h2>
+      <h2>🛒 Win a $1000 Grocery Card</h2>
       <div><span class="badge">Desktop</span><span class="badge">United States</span></div>
       <p>Enter your information now for a chance to win a $1000 Grocery Card.</p>
       <div class="cta">
-        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=72939" target="_blank">🥇 Enter Now</a>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=72939" target="_blank">🥇 Enter Giveaway</a>
       </div>
     </section>
 
-    <section class="offer">
-      <h2>📦 Claim your Mystery Box Now!</h2>
+    <section id="ios" class="offer">
+      <h2>📦 Claim Your Mystery Box (iOS)</h2>
       <div><span class="badge">Apple iOS</span><span class="badge">United States</span></div>
       <p>Enter your information now for a chance to win your Mystery Box.</p>
       <div class="cta">
-        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=70936" target="_blank">🎉 Claim Now</a>
+        <a class="button" href="https://singingfiles.com/show.php?l=0&u=2465402&id=70936" target="_blank">🎉 Claim Box</a>
       </div>
     </section>
 
-    <section class="offer">
-      <h2>🤑 Click Box - Fix CPL TAP TO EARN YOUR BONUS</h2>
+    <section id="all" class="offer">
+      <h2>🤑 Click Box - Fix CPL TAP TO EARN BONUS</h2>
       <div><span class="badge">All Devices</span><span class="badge">United States</span></div>
       <p>Tap below to earn your bonus. Available for all users in the United States.</p>
       <div class="cta">
-        <a class="button" href="https://ldl1.com/link?z=10135945&var={SOURCE_ID}&ymid={CLICK_ID}" target="_blank">💰 Tap to Earn</a>
+        <a class="button" href="https://ldl1.com/link?z=10135945&var={SOURCE_ID}&ymid={CLICK_ID}" target="_blank">💰 Tap to Earn Bonus</a>
       </div>
     </section>
   </main>
 
+  <section style="text-align:center; margin-top:2rem; color:#9ca3af; font-size:0.9rem;">
+    <p>🔒 Secure Offers — No Personal Data Shared | 💵 Verified Partners | 🕵️ Privacy-Friendly Analytics</p>
+  </section>
+
   <footer>
     Affiliate Disclosure: TechWoofer may earn commissions on qualifying actions.  
-    Offers available only in the United States.
+    Offers available only in the United States.  
+    <br>© 2025 TechWoofer. All rights reserved.
   </footer>
+
+  <script>
+    // ✅ Basic Click Tracking (Google Analytics / Ahrefs)
+    document.querySelectorAll('a.button').forEach(link=>{
+      link.addEventListener('click',()=> {
+        if (window.gtag) {
+          gtag('event', 'click', {event_category: 'affiliate', event_label: link.href});
+        }
+      });
+    });
+  </script>
 </body>
 </html>
