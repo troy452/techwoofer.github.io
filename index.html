@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechWoofer — Earn from Clicks & Leads | Smart CPA Offers</title>
-  <meta name="description" content="Discover high-converting CPA offers. Earn from clicks and leads with TechWoofer — real-time smart offers powered by CPAGrip and SmartLink monetization." />
+  <title>TechWoofer — Exclusive CPA Offers | Earn from Leads</title>
+  <meta name="description" content="Discover live CPA offers from TechWoofer. Complete actions, sign up, and earn rewards instantly. Auto-updated daily from CPAGrip." />
   <link rel="icon" href="/favicon.ico" />
   <style>
     body {
@@ -21,7 +21,7 @@
       color: white;
     }
     header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: 0.5rem 0 0; color: #e0e7ff; }
+    header p { margin-top: .5rem; color: #e0e7ff; }
     section.hero {
       background: linear-gradient(145deg, #7c3aed, #2563eb);
       text-align: center;
@@ -82,6 +82,12 @@
       color: #f1f5f9;
       margin-bottom: 0.5rem;
     }
+    .offer-card p {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      height: 40px;
+      overflow: hidden;
+    }
     .offer-card a {
       display: inline-block;
       background: #3b82f6;
@@ -105,67 +111,66 @@
 <body>
 
   <header>
-    <h1>TechWoofer — Smart CPA Network</h1>
-    <p>Earn from clicks and leads automatically with live CPAGrip offers.</p>
+    <h1>TechWoofer — Live CPA Offers</h1>
+    <p>Earn from leads. Complete offers and get rewarded instantly!</p>
   </header>
 
   <section class="hero">
     <h2>🔥 Start Earning Instantly</h2>
-    <p>Every click counts — earn from global CPA offers in real-time.</p>
-    <a href="https://quartzfiles.com/1855005" target="_blank">🚀 Start Earning</a>
+    <p>Explore live offers below. Each action you complete earns you cash rewards.</p>
+    <a href="#offers">💰 View Offers</a>
   </section>
 
-  <h2 class="section-title">🧩 Live CPA Offers (Auto-Updating)</h2>
+  <h2 class="section-title">🧩 Live CPA Offers (Auto-Updated)</h2>
   <div id="offer-grid"><p style="text-align:center;">Loading offers...</p></div>
 
   <footer>
     © 2025 TechWoofer. All rights reserved.<br>
-    💰 Monetized by CPAGrip SmartLink — Earn from clicks and leads globally.
+    Powered by CPAGrip — Earn per action, install, or signup.
   </footer>
 
   <script>
-    const rssURL = "https://cpagrip-feed.miralbenizi7.workers.dev/";
-    const smartLink = "https://quartzfiles.com/1855005";
+    const apiURL = "https://www.cpagrip.com/common/offer_feed_json.php?user_id=2465402&pubkey=693a020bdfe1668d1f7e453233be8be3&tracking_id=";
 
-    fetch(rssURL)
-      .then(response => {
-        if (!response.ok) throw new Error("Feed request failed");
-        return response.text();
-      })
-      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-      .then(data => {
-        const offers = data.querySelectorAll("offer");
+    async function loadOffers() {
+      try {
+        const res = await fetch(apiURL);
+        if (!res.ok) throw new Error("Failed to load offers");
+        const data = await res.json();
+        const offers = data.offers || [];
         const container = document.getElementById("offer-grid");
         container.innerHTML = "";
 
         if (!offers.length) {
-          container.innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ No offers available right now.</p>";
+          container.innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ No offers available at this time.</p>";
           return;
         }
 
         offers.forEach(o => {
-          const title = o.querySelector("title")?.textContent || "Untitled Offer";
-          const image = o.querySelector("offerphoto")?.textContent || "https://via.placeholder.com/300x200?text=Offer";
-          const offerLink = encodeURIComponent(o.querySelector("offerlink")?.textContent || "#");
-          const payout = o.querySelector("payout")?.textContent || "N/A";
-
-          // 🔁 Wrap each CPA link through your SmartLink
-          const finalLink = `${smartLink}?redirect=${offerLink}`;
+          const title = o.title || "Untitled Offer";
+          const desc = o.description || "Complete this offer to earn rewards.";
+          const image = o.offerphoto || "https://via.placeholder.com/300x200?text=Offer";
+          const link = o.offerlink || "#";
+          const payout = o.payout || "0.00";
 
           const card = document.createElement("div");
           card.className = "offer-card";
           card.innerHTML = `
             <img src="${image}" alt="${title}">
             <h3>${title}</h3>
-            <a href="${finalLink}" target="_blank">💵 Earn $${payout}</a>
+            <p>${desc}</p>
+            <a href="${link}" target="_blank">💵 Earn $${payout}</a>
           `;
           container.appendChild(card);
         });
-      })
-      .catch(err => {
-        console.error("Offer loading failed:", err);
-        document.getElementById("offer-grid").innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ Could not load offers. Please try again later.</p>";
-      });
+      } catch (err) {
+        console.error(err);
+        document.getElementById("offer-grid").innerHTML =
+          "<p style='text-align:center;color:#f87171;'>⚠️ Could not load offers. Please try again later.</p>";
+      }
+    }
+
+    loadOffers();
   </script>
 
 </body>
