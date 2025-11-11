@@ -168,33 +168,43 @@
 
   <!-- SCRIPT: Load CPA Offers -->
   <script>
-    const rssURL = "https://cpagrip-feed.<yourname>.workers.dev";
-    
-    fetch(rssURL)
-      .then(res => res.text())
-      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
-      .then(data => {
-        const offers = data.querySelectorAll("offer");
-        const container = document.getElementById("offer-grid");
-        offers.forEach(o => {
-          const title = o.querySelector("title").textContent;
-          const img = o.querySelector("offerphoto").textContent;
-          const link = o.querySelector("offerlink").textContent.replace("www.cpagrip.com", "quartzfiles.com");
-          const payout = o.querySelector("payout").textContent;
-          const card = document.createElement("div");
-          card.className = "offer-card";
-          card.innerHTML = `
-            <img src="${img}" alt="${title}">
-            <h3>${title}</h3>
-            <a href="${link}" target="_blank">💰 Earn $${payout}</a>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch(err => {
-        document.getElementById("offer-grid").innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ Could not load offers. Please try again later.</p>";
+  const rssURL = "https://cpagrip-feed.miralbenizi7.workers.dev/";
+
+  fetch(rssURL)
+    .then(response => {
+      if (!response.ok) throw new Error("Feed request failed");
+      return response.text();
+    })
+    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+    .then(data => {
+      const offers = data.querySelectorAll("offer");
+      const container = document.getElementById("offer-grid");
+      if (!offers.length) {
+        container.innerHTML = "<p style='text-align:center;color:#fbbf24;'>⚠️ No offers found in your region right now.</p>";
+        return;
+      }
+
+      offers.forEach(o => {
+        const title = o.querySelector("title")?.textContent || "Untitled Offer";
+        const image = o.querySelector("offerphoto")?.textContent || "https://via.placeholder.com/300x200?text=Offer";
+        const link = (o.querySelector("offerlink")?.textContent || "#").replace("www.cpagrip.com", "quartzfiles.com");
+        const payout = o.querySelector("payout")?.textContent || "N/A";
+
+        const card = document.createElement("div");
+        card.className = "offer-card";
+        card.innerHTML = `
+          <img src="${image}" alt="${title}">
+          <h3>${title}</h3>
+          <a href="${link}" target="_blank">💰 Earn $${payout}</a>
+        `;
+        container.appendChild(card);
       });
-  </script>
+    })
+    .catch(err => {
+      console.error("Offer loading failed:", err);
+      document.getElementById("offer-grid").innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ Could not load offers. Please try again later.</p>";
+    });
+</script>
 
 </body>
 </html>
