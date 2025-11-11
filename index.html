@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechWoofer — Exclusive CPA Offers</title>
-  <meta name="description" content="Discover live CPA offers from TechWoofer. Complete actions, sign up, and get rewarded instantly." />
+  <title>TechWoofer — Live U.S. CPA Offers</title>
+  <meta name="description" content="Browse and complete verified CPA offers available in the United States. Join, click, and earn rewards instantly with TechWoofer." />
   <link rel="icon" href="/favicon.ico" />
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -14,25 +15,42 @@
       margin: 0;
       padding: 0;
     }
+
     header {
       background: linear-gradient(90deg, #3b82f6, #7c3aed);
       text-align: center;
       padding: 2rem 1rem;
       color: white;
     }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin-top: .5rem; color: #e0e7ff; }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: #e0e7ff;
+    }
+
     section.hero {
       background: linear-gradient(145deg, #7c3aed, #2563eb);
       text-align: center;
       padding: 3rem 1rem;
     }
+
     .hero h2 {
       color: white;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-    .hero p { color: #cbd5e1; font-size: 1.1rem; }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .hero a {
       background: #facc15;
       color: #111827;
@@ -40,17 +58,21 @@
       font-weight: 700;
       border-radius: 10px;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 1rem;
       transition: background 0.3s;
+      display: inline-block;
     }
-    .hero a:hover { background: #fbbf24; }
+
+    .hero a:hover {
+      background: #fbbf24;
+    }
+
     h2.section-title {
       color: #facc15;
       text-align: center;
       font-size: 1.6rem;
       margin-top: 3rem;
     }
+
     #offer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -59,17 +81,21 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .offer-card {
       background: #1e293b;
       border-radius: 12px;
       padding: 1rem;
       text-align: center;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
+
     .offer-card:hover {
       background: #334155;
       transform: translateY(-5px);
     }
+
     .offer-card img {
       width: 100%;
       height: 180px;
@@ -77,28 +103,36 @@
       border-radius: 10px;
       margin-bottom: 10px;
     }
+
     .offer-card h3 {
       font-size: 1rem;
       color: #f1f5f9;
       margin-bottom: 0.5rem;
     }
+
     .offer-card p {
       font-size: 0.9rem;
       color: #cbd5e1;
       height: 40px;
       overflow: hidden;
     }
+
     .offer-card a {
       display: inline-block;
       background: #3b82f6;
       color: white;
       text-decoration: none;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 8px;
       font-weight: 600;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
     }
-    .offer-card a:hover { background: #2563eb; }
+
+    .offer-card a:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
     footer {
       background: #1e293b;
       text-align: center;
@@ -106,43 +140,62 @@
       padding: 1.5rem;
       font-size: 0.9rem;
     }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #3b82f6; }
+      50% { box-shadow: 0 0 20px #2563eb; }
+      100% { box-shadow: 0 0 5px #3b82f6; }
+    }
+
+    .offer-card a {
+      animation: glow 2s infinite ease-in-out;
+    }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <h1>TechWoofer — Live CPA Offers</h1>
-    <p>Complete simple actions and unlock instant rewards.</p>
+    <h1>TechWoofer — Exclusive U.S. CPA Offers</h1>
+    <p>Discover verified offers you can complete for rewards and bonuses.</p>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <h2>🔥 Join & Start Earning Instantly</h2>
-    <p>Choose an offer below and get started in seconds.</p>
+    <p>Click any offer below to get started — available only for the United States.</p>
     <a href="#offers">🚀 View Offers</a>
   </section>
 
-  <h2 class="section-title">🧩 Live CPA Offers (Auto-Updated)</h2>
+  <!-- OFFERS SECTION -->
+  <h2 class="section-title">🇺🇸 Live CPA Offers (United States)</h2>
   <div id="offer-grid"><p style="text-align:center;">Loading offers...</p></div>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 TechWoofer. All rights reserved.<br>
     Powered by CPAGrip — Earn from verified CPA actions.
   </footer>
 
+  <!-- JAVASCRIPT -->
   <script>
-    const apiURL = "https://www.cpagrip.com/common/offer_feed_json.php?user_id=2465402&pubkey=693a020bdfe1668d1f7e453233be8be3&tracking_id=";
+    const apiURL = "https://www.cpagrip.com/common/offer_feed_json.php?user_id=2465402&pubkey=693a020bdfe1668d1f7e453233be8be3&country=US&limit=200";
 
     async function loadOffers() {
       try {
         const res = await fetch(apiURL);
         if (!res.ok) throw new Error("Failed to load offers");
+
         const data = await res.json();
         const offers = data.offers || [];
         const container = document.getElementById("offer-grid");
         container.innerHTML = "";
 
-        if (!offers.length) {
-          container.innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ No offers available at this time.</p>";
+        if (offers.length === 0) {
+          container.innerHTML = `
+            <p style="text-align:center;color:#facc15;">
+              🌍 No local offers available. <a href="https://quartzfiles.com/1855005" target="_blank" style="color:#3b82f6;text-decoration:underline;">Click here</a> for global rewards!
+            </p>`;
           return;
         }
 
@@ -152,7 +205,7 @@
           const image = o.offerphoto || "https://via.placeholder.com/300x200?text=Offer";
           const link = o.offerlink || "#";
 
-          // Random simple CTA text
+          // Random CTA Text
           const ctas = ["🎯 Join Now", "🚀 Click Here", "✅ Enter Offer", "👉 Start Now"];
           const ctaText = ctas[Math.floor(Math.random() * ctas.length)];
 
@@ -173,7 +226,9 @@
       }
     }
 
+    // Initial Load + Auto-refresh every 3 hours
     loadOffers();
+    setInterval(loadOffers, 1000 * 60 * 60 * 3);
   </script>
 
 </body>
