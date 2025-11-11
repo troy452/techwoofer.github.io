@@ -104,8 +104,8 @@ footer {
 </footer>
 
 <script>
-const api = "https://cpagrip-feed.miralbenizi7.workers.dev"; // Your Worker endpoint
-const localBackup = "offers.json";
+const api = "https://cpagrip-feed.miralbenizi7.workers.dev";
+const localBackup = window.location.origin + '/offers.json';
 
 async function loadOffers() {
   const container = document.getElementById("offers");
@@ -116,18 +116,28 @@ async function loadOffers() {
     if (!response.ok) throw new Error("Feed unavailable");
     let data = await response.json();
 
-    if (!data.offers || !data.offers.length) throw new Error("No offers");
-    renderOffers(data.offers);
+    if (!data.offers || !data.offers.length) throw new Error("No offers from feed");
+    renderOffers(data.offers, "🌐 Live Feed");
   } catch (e) {
-    console.warn("Falling back to local file:", e.message);
-    const res = await fetch(localBackup);
-    const data = await res.json();
-    renderOffers(data.offers);
+    console.warn("⚠️ Feed failed, using local file:", e.message);
+    try {
+      const res = await fetch(localBackup, {cache: "no-store"});
+      const data = await res.json();
+      renderOffers(data.offers, "💾 Local Backup");
+    } catch (err) {
+      console.error("❌ Local file failed:", err);
+      container.innerHTML = "<p style='text-align:center;color:#f87171;'>No offers available right now.</p>";
+    }
   }
 }
 
-function renderOffers(offers) {
+function renderOffers(offers, source = "") {
   const container = document.getElementById("offers");
+  if (!offers || !offers.length) {
+    container.innerHTML = "<p>No offers found.</p>";
+    return;
+  }
+
   container.innerHTML = offers.map(o => `
     <div class="offer">
       <img src="${o.image}" alt="${o.title}">
@@ -136,6 +146,18 @@ function renderOffers(offers) {
       <a href="${o.link}" target="_blank" class="cta">🎁 Join Offer</a>
     </div>
   `).join('');
+
+  // Show source indicator for debugging
+  const badge = document.createElement("div");
+  badge.textContent = source;
+  badge.style.cssText = `
+    position: fixed; bottom: 10px; right: 10px;
+    background: #111827; color: #facc15;
+    padding: 6px 10px; border-radius: 8px;
+    font-size: 12px; font-weight: 600;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  `;
+  document.body.appendChild(badge);
 }
 
 loadOffers();
