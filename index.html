@@ -1,189 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TechWoofer — CPA Offers</title>
-<style>
-body {
-  font-family: 'Inter', sans-serif;
-  background: #0a0f1a;
-  color: #fff;
-  margin: 0;
-}
-header, .hero {
-  text-align: center;
-  background: linear-gradient(135deg, #3b82f6, #7c3aed);
-  padding: 2rem 1rem;
-}
-.hero {
-  border-radius: 0 0 25px 25px;
-}
-.button {
-  display: inline-block;
-  background: #facc15;
-  color: #000;
-  font-weight: bold;
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  text-decoration: none;
-}
-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
-.offer {
-  background: #111827;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,.4);
-  transition: transform .3s;
-  text-align: center;
-  padding-bottom: 1rem;
-}
-.offer:hover {
-  transform: translateY(-4px);
-}
-.offer img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-.offer h3 {
-  font-size: 1rem;
-  margin: .5rem 0;
-}
-.offer p {
-  color: #9ca3af;
-  font-size: .9rem;
-  padding: 0 .6rem;
-  min-height: 50px;
-}
-.cta {
-  display: inline-block;
-  background: #2563eb;
-  color: #fff;
-  padding: .5rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
-footer {
-  text-align: center;
-  font-size: .8rem;
-  color: #9ca3af;
-  padding: 1rem 0;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechWoofer — Live Offers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #0f172a;
+      color: #fff;
+    }
+    header {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    h2 {
+      text-align: center;
+      color: #facc15;
+      font-size: 1.4rem;
+      margin-top: 30px;
+    }
+    #offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .offer {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease-in-out;
+    }
+    .offer:hover {
+      transform: translateY(-4px);
+    }
+    .offer img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .offer h3 {
+      margin: 10px 0;
+      font-size: 1rem;
+      color: #f9fafb;
+    }
+    .offer p {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      min-height: 40px;
+    }
+    .cta {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .cta:hover {
+      background: #1d4ed8;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #9ca3af;
+      font-size: 0.85rem;
+      border-top: 1px solid #1e293b;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>TechWoofer — Exclusive CPA Offers</h1>
-  <p>Join and complete offers to earn rewards and bonuses instantly.</p>
-</header>
+  <header>TechWoofer — Live Offers</header>
 
-<section class="hero">
-  <h2>🔥 Join & Start Earning Instantly!</h2>
-  <a class="button" href="#offers">🚀 View Offers</a>
-</section>
+  <h2>🇺🇸 Live Offers (Auto + Local)</h2>
+  <div id="offers"><p style="text-align:center;">Loading offers...</p></div>
 
-<section style="text-align:center;margin-top:2rem;">
-  <h3>🌎 Live CPA Offers (Auto + Local Backup)</h3>
-</section>
+  <footer>
+    © 2025 TechWoofer — Powered by CPAGrip.  
+  </footer>
 
-<main id="offers">
-  <p style="text-align:center;width:100%;">Loading offers...</p>
-</main>
+  <script>
+    const api = "https://cpagrip-feed.miralbenizi7.workers.dev";
+    const localFile = window.location.origin + "/offers.json";
 
-<footer>
-  © 2025 TechWoofer — Powered by CPAGrip. All rights reserved.
-</footer>
+    async function loadOffers() {
+      const container = document.getElementById("offers");
+      container.innerHTML = "<p style='text-align:center;'>Loading offers...</p>";
 
-<script>
-const api = "https://cpagrip-feed.miralbenizi7.workers.dev";
-const localFile = window.location.origin + '/offers.json';
+      try {
+        // Fetch local offers first
+        const localPromise = fetch(localFile).then(r => r.ok ? r.json() : { offers: [] });
+        const livePromise = fetch(api).then(r => r.ok ? r.json() : { offers: [] });
 
-// Load both live and local offers
-async function loadOffers() {
-  const container = document.getElementById("offers");
-  container.innerHTML = "<p style='text-align:center;'>Loading offers...</p>";
+        const [localData, liveData] = await Promise.all([localPromise, livePromise]);
 
-  try {
-    // Fetch live feed
-    const livePromise = fetch(api).then(r => r.ok ? r.json() : { offers: [] });
-    // Fetch local backup
-    const localPromise = fetch(localFile).then(r => r.ok ? r.json() : { offers: [] });
+        const localOffers = localData.offers || [];
+        const liveOffers = liveData.offers || [];
 
-    const [liveData, localData] = await Promise.all([livePromise, localPromise]);
+        // Merge offers — local first
+        const allOffers = mergeOffers(localOffers, liveOffers);
 
-    const liveOffers = liveData.offers || [];
-    const localOffers = localData.offers || [];
+        if (allOffers.length === 0) {
+          container.innerHTML = "<p style='text-align:center;color:#f87171;'>No offers available right now.</p>";
+          return;
+        }
 
-    // Merge and deduplicate offers
-    const allOffers = mergeOffers(liveOffers, localOffers);
-
-    if (allOffers.length === 0) {
-      container.innerHTML = "<p style='text-align:center;color:#f87171;'>No offers available right now.</p>";
-      return;
+        renderOffers(allOffers);
+        showBadge(liveOffers.length > 0 ? "🌐 + 💾 Combined Sources" : "💾 Local Offers Only");
+      } catch (err) {
+        console.error("Error loading offers:", err);
+        container.innerHTML = "<p style='text-align:center;color:#f87171;'>Error loading offers.</p>";
+      }
     }
 
-    renderOffers(allOffers);
-    showBadge(liveOffers.length > 0 && localOffers.length > 0 ? "🌐 + 💾 Both Sources" :
-               liveOffers.length > 0 ? "🌐 Live Feed" : "💾 Local Offers");
-  } catch (err) {
-    console.error("Failed to load offers:", err);
-    container.innerHTML = "<p style='text-align:center;color:#f87171;'>Error loading offers.</p>";
-  }
-}
+    // Merge and deduplicate offers by title
+    function mergeOffers(local, live) {
+      const seen = new Set();
+      const merged = [];
 
-// Merge and deduplicate offers by title
-function mergeOffers(live, local) {
-  const seen = new Set();
-  const merged = [];
+      [...local, ...live].forEach(o => {
+        const key = (o.title || "").trim().toLowerCase();
+        if (!seen.has(key)) {
+          seen.add(key);
+          merged.push(o);
+        }
+      });
 
-  [...live, ...local].forEach(o => {
-    const key = (o.title || "").trim().toLowerCase();
-    if (!seen.has(key)) {
-      seen.add(key);
-      merged.push(o);
+      return merged;
     }
-  });
 
-  return merged;
-}
+    // Render offers in grid
+    function renderOffers(offers) {
+      const container = document.getElementById("offers");
+      container.innerHTML = offers
+        .map(
+          (o) => `
+        <div class="offer">
+          <img src="${o.image}" alt="${o.title}">
+          <h3>${o.title}</h3>
+          <p>${o.description}</p>
+          <a href="${o.link}" target="_blank" class="cta">🎁 Join Offer</a>
+        </div>
+      `
+        )
+        .join("");
+    }
 
-// Render offers
-function renderOffers(offers) {
-  const container = document.getElementById("offers");
-  container.innerHTML = offers.map(o => `
-    <div class="offer">
-      <img src="${o.image}" alt="${o.title}">
-      <h3>${o.title}</h3>
-      <p>${o.description}</p>
-      <a href="${o.link}" target="_blank" class="cta">🎁 Join Offer</a>
-    </div>
-  `).join('');
-}
+    // Small badge showing data source
+    function showBadge(text) {
+      const badge = document.createElement("div");
+      badge.textContent = text;
+      badge.style.cssText = `
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background: #111827;
+        color: #facc15;
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      `;
+      document.body.appendChild(badge);
+    }
 
-// Show source badge
-function showBadge(text) {
-  const badge = document.createElement("div");
-  badge.textContent = text;
-  badge.style.cssText = `
-    position: fixed; bottom: 10px; right: 10px;
-    background: #111827; color: #facc15;
-    padding: 6px 10px; border-radius: 8px;
-    font-size: 12px; font-weight: 600;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  `;
-  document.body.appendChild(badge);
-}
-
-loadOffers();
-</script>
+    loadOffers();
+  </script>
 </body>
 </html>
