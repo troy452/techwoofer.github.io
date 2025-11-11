@@ -2,208 +2,180 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- ✅ MyLead domain verification -->
+  <meta name="mylead-verification" content="288d94ad6497c6409a2130f8ac52707c">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechWoofer — Live Offers</title>
+  <title>TechWoofer — Free Gaming Rewards (US • CA • UK)</title>
+  <meta name="description" content="Unlock gaming rewards, gift cards, and exclusive bonuses from TechWoofer — your portal for top gaming offers in the US, UK, and Canada." />
+  <meta name="theme-color" content="#3b82f6">
+
   <style>
+    :root {
+      --bg: #0b1120;
+      --card: #141d2b;
+      --accent: #3b82f6;
+      --accent2: #8b5cf6;
+      --muted: #9ca3af;
+      --text: #e5e7eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: "Inter", sans-serif;
-      background: #0f172a;
-      color: #fff;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
     header {
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       text-align: center;
-      padding: 40px 20px;
-      font-size: 1.8rem;
-      font-weight: 700;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      font-size: 1rem;
+      color: #f9fafb;
+      opacity: 0.9;
     }
     h2 {
       text-align: center;
       color: #facc15;
-      font-size: 1.4rem;
-      margin-top: 30px;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.3rem;
     }
     #offers {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 30px;
-      max-width: 1200px;
+      padding: 1.5rem;
+      max-width: 1100px;
       margin: auto;
     }
     .offer {
-      background: #1e293b;
-      border-radius: 10px;
-      padding: 15px;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
       transition: transform 0.2s ease-in-out;
     }
-    .offer:hover {
-      transform: translateY(-4px);
-    }
+    .offer:hover { transform: translateY(-5px); }
     .offer img {
       width: 100%;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
-      border-radius: 8px;
     }
     .offer h3 {
-      margin: 10px 0;
       font-size: 1rem;
-      color: #f9fafb;
+      margin: 10px 0 5px;
+      color: #fff;
     }
     .offer p {
       font-size: 0.85rem;
-      color: #cbd5e1;
+      color: var(--muted);
+      padding: 0 10px;
       min-height: 40px;
     }
     .cta {
       display: inline-block;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.9rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin: 12px auto 16px;
       font-weight: 600;
+      text-decoration: none;
       transition: background 0.3s;
-      cursor: pointer;
     }
-    .cta:hover {
-      background: #1d4ed8;
-    }
+    .cta:hover { background: var(--accent2); }
     footer {
       text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
       padding: 20px;
-      color: #9ca3af;
-      font-size: 0.85rem;
-      border-top: 1px solid #1e293b;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
   </style>
-
-  <!-- ✅ MyLead Content Locker Integration -->
-  <script type="text/javascript">
-    var myLeadLocker = { id: "c0972446-bf09-11f0-b0d4-c2a106037445" };
-  </script>
-  <script type="text/javascript" src="https://static.mylead.global/js/ml.js"></script>
 </head>
-<body>
-  <header>TechWoofer — Live Offers</header>
 
-  <h2>🇺🇸 Live Offers (Auto + Local)</h2>
+<body>
+  <header>
+    <h1>🎮 TechWoofer</h1>
+    <p>Unlock gaming rewards, gift cards, and exclusive bonuses.</p>
+  </header>
+
+  <h2>🇺🇸 Live Gaming Offers</h2>
   <div id="offers"><p style="text-align:center;">Loading offers...</p></div>
 
   <footer>
-    © 2025 TechWoofer — Powered by CPAGrip & MyLead.
+    © 2025 TechWoofer.com — Powered by MyLead SmartLink.
   </footer>
 
+  <!-- ✅ MyLead Content Locker (replace ID with your own if needed) -->
+  <script type="text/javascript">
+    var myLeadLocker = { id: "c0972446-bf09-11f0-b0d4-c2a106037445" }; 
+  </script>
+  <script type="text/javascript" src="https://static.mylead.global/js/ml.js"></script>
+
   <script>
-    const api = "https://cpagrip-feed.miralbenizi7.workers.dev";
-    const localFile = window.location.origin + "/offers.json";
+    const LOCAL_OFFERS = "/offers.json";
+    const SMARTLINK = "https://quartzfiles.com/1855005"; // ← Replace with your MyLead SmartLink
+    const MAX_OFFERS = 20;
 
-    async function loadOffers() {
-      const container = document.getElementById("offers");
-      container.innerHTML = "<p style='text-align:center;'>Loading offers...</p>";
-
+    async function loadLocalOffers() {
       try {
-        // Fetch local offers first
-        const localPromise = fetch(localFile).then(r => r.ok ? r.json() : { offers: [] });
-        const livePromise = fetch(api).then(r => r.ok ? r.json() : { offers: [] });
-
-        const [localData, liveData] = await Promise.all([localPromise, livePromise]);
-
-        const localOffers = localData.offers || [];
-        const liveOffers = liveData.offers || [];
-
-        // Merge offers — local first
-        const allOffers = mergeOffers(localOffers, liveOffers);
-
-        if (allOffers.length === 0) {
-          container.innerHTML = "<p style='text-align:center;color:#f87171;'>No offers available right now.</p>";
-          return;
-        }
-
-        renderOffers(allOffers);
-        showBadge(liveOffers.length > 0 ? "🌐 + 💾 Combined Sources" : "💾 Local Offers Only");
-      } catch (err) {
-        console.error("Error loading offers:", err);
-        container.innerHTML = "<p style='text-align:center;color:#f87171;'>Error loading offers.</p>";
+        const res = await fetch(LOCAL_OFFERS);
+        if (!res.ok) throw new Error();
+        return await res.json();
+      } catch {
+        return [];
       }
     }
 
-    // Merge and deduplicate offers by title
-    function mergeOffers(local, live) {
-      const seen = new Set();
-      const merged = [];
-
-      [...local, ...live].forEach(o => {
-        const key = (o.title || "").trim().toLowerCase();
-        if (!seen.has(key)) {
-          seen.add(key);
-          merged.push(o);
-        }
-      });
-
-      return merged;
-    }
-
-    // Render offers in grid
     function renderOffers(offers) {
       const container = document.getElementById("offers");
+      if (!offers.length) {
+        container.innerHTML = `<p style="text-align:center;color:#f87171;">No offers available right now.</p>`;
+        return;
+      }
       container.innerHTML = offers
+        .slice(0, MAX_OFFERS)
         .map(
           (o) => `
         <div class="offer">
           <img src="${o.image}" alt="${o.title}">
           <h3>${o.title}</h3>
           <p>${o.description}</p>
-          <a href="${o.link}" class="cta join-offer" data-link="${o.link}">🎁 Join Offer</a>
-        </div>
-      `
+          <a href="#" class="cta join-offer" data-link="${o.link}">🎁 Join Offer</a>
+        </div>`
         )
         .join("");
-
-      attachLockerToButtons();
+      attachLockers();
     }
 
-    // Attach MyLead locker to each Join Offer button
-    function attachLockerToButtons() {
-      const buttons = document.querySelectorAll(".join-offer");
-
-      buttons.forEach(btn => {
-        btn.addEventListener("click", function(e) {
+    function attachLockers() {
+      document.querySelectorAll(".join-offer").forEach(btn => {
+        btn.addEventListener("click", e => {
           e.preventDefault();
           if (typeof ML !== "undefined" && typeof ML.open === "function") {
-            ML.open();
+            ML.open(); // opens MyLead locker
           } else {
-            alert("Loading secure access... please wait.");
+            window.open(SMARTLINK, "_blank"); // fallback redirect
           }
         });
       });
     }
 
-    // Small badge showing data source
-    function showBadge(text) {
-      const badge = document.createElement("div");
-      badge.textContent = text;
-      badge.style.cssText = `
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        background: #111827;
-        color: #facc15;
-        padding: 6px 10px;
-        border-radius: 8px;
-        font-size: 12px;
-        font-weight: 600;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      `;
-      document.body.appendChild(badge);
+    async function init() {
+      const localOffers = await loadLocalOffers();
+      renderOffers(localOffers);
     }
 
-    loadOffers();
+    init();
   </script>
 </body>
 </html>
