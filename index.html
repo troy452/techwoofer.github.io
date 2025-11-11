@@ -1,210 +1,172 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>TechWoofer — Earn Rewards & Cash Offers (CPA)</title>
-  <meta name="description" content="Earn rewards, gift cards, and bonuses by completing simple CPA offers. Instant access to verified U.S. and global offers through TechWoofer Smart Link.">
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://techwoofer.com/"/>
-
-  <!-- ✅ Open Graph -->
-  <meta property="og:title" content="TechWoofer — Earn Rewards & Gift Cards"/>
-  <meta property="og:description" content="Complete offers, install apps, and earn rewards instantly. 100% verified CPA offers.">
-  <meta property="og:image" content="https://techwoofer.com/preview.jpg"/>
-  <meta property="og:type" content="website"/>
-
-  <!-- ✅ Styles -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechWoofer — Earn from Clicks & Leads | Smart CPA Offers</title>
+  <meta name="description" content="Discover high-converting CPA offers. Earn from clicks and leads with TechWoofer — real-time smart offers powered by CPAGrip and SmartLink monetization." />
+  <link rel="icon" href="/favicon.ico" />
   <style>
     body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
       margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      background: #0a0f1a;
-      color: #f5f7fa;
+      padding: 0;
     }
     header {
+      background: linear-gradient(90deg, #3b82f6, #7c3aed);
       text-align: center;
       padding: 2rem 1rem;
-      background: linear-gradient(135deg, #3b82f6, #7c3aed);
+      color: white;
     }
     header h1 { margin: 0; font-size: 2rem; }
-    header p { color: #e0e7ff; margin-top: .5rem; }
-
-    .hero {
+    header p { margin: 0.5rem 0 0; color: #e0e7ff; }
+    section.hero {
+      background: linear-gradient(145deg, #7c3aed, #2563eb);
       text-align: center;
       padding: 3rem 1rem;
-      background: linear-gradient(145deg, #7c3aed, #2563eb);
-      border-radius: 0 0 20px 20px;
     }
-    .hero h1 { font-size: 2.4rem; margin-bottom: 1rem; color: #fff; }
-    .hero p { color: #e0e7ff; margin-bottom: 1.5rem; font-size: 1.1rem; }
-    .button {
+    .hero h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p { color: #cbd5e1; font-size: 1.1rem; }
+    .hero a {
       background: #facc15;
-      color: #111;
-      padding: 12px 18px;
-      border-radius: 8px;
+      color: #111827;
+      padding: 0.8rem 1.5rem;
       font-weight: 700;
+      border-radius: 10px;
       text-decoration: none;
-      transition: background .3s;
       display: inline-block;
-    }
-    .button:hover { background: #fbbf24; }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-    .offer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
       margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    .hero a:hover { background: #fbbf24; }
+    h2.section-title {
+      color: #facc15;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-top: 3rem;
+    }
+    #offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
     .offer-card {
       background: #1e293b;
       border-radius: 12px;
       padding: 1rem;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      transition: transform .3s, box-shadow .3s;
+      transition: all 0.3s ease;
     }
     .offer-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      background: #334155;
+      transform: translateY(-5px);
     }
     .offer-card img {
       width: 100%;
-      height: 160px;
+      height: 180px;
       object-fit: cover;
       border-radius: 10px;
-      margin-bottom: .75rem;
+      margin-bottom: 10px;
     }
-    .offer-card h3 { font-size: 1rem; color: #fff; margin-bottom: .5rem; }
-    .offer-card a {
-      background: #facc15;
-      color: #111;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background .3s;
-    }
-    .offer-card a:hover { background: #fde047; }
-
-    iframe {
-      width: 100%;
-      height: 80vh;
-      border: none;
-      border-radius: 12px;
-      margin-top: 2rem;
-    }
-
-    footer {
-      text-align: center;
-      color: #9ca3af;
-      font-size: .85rem;
-      margin: 3rem 0 1rem;
-    }
-
-    /* Floating CTA Button */
-    .floating-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #facc15;
-      color: #111;
-      font-weight: 700;
-      padding: 14px 20px;
-      border-radius: 30px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-      text-decoration: none;
+    .offer-card h3 {
       font-size: 1rem;
-      transition: transform 0.3s ease, background 0.3s ease;
-      z-index: 9999;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
     }
-    .floating-btn:hover {
-      background: #fde047;
-      transform: scale(1.05);
+    .offer-card a {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .offer-card a:hover { background: #2563eb; }
+    footer {
+      background: #1e293b;
+      text-align: center;
+      color: #94a3b8;
+      padding: 1.5rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
   <header>
-    <h1>TechWoofer — Earn Cash & Rewards</h1>
-    <p>Complete verified CPA offers. Get rewarded for simple actions!</p>
+    <h1>TechWoofer — Smart CPA Network</h1>
+    <p>Earn from clicks and leads automatically with live CPAGrip offers.</p>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
-    <h1>🔥 Start Earning Instantly!</h1>
-    <p>Click below to unlock the best CPA offers — no affiliate sales, just real leads and rewards.</p>
-    <a class="button" href="https://quartzfiles.com/1855005" target="_blank">🎁 Start Earning</a>
+    <h2>🔥 Start Earning Instantly</h2>
+    <p>Every click counts — earn from global CPA offers in real-time.</p>
+    <a href="https://quartzfiles.com/1855005" target="_blank">🚀 Start Earning</a>
   </section>
 
-  <!-- LIVE CPA OFFERS FROM CPAGRIP -->
-  <main>
-    <h2 style="text-align:center;color:#facc15;font-size:1.4rem;">💸 Live CPA Offers (Auto-Updated)</h2>
-    <div id="offer-grid" class="offer-grid"></div>
-  </main>
+  <h2 class="section-title">🧩 Live CPA Offers (Auto-Updating)</h2>
+  <div id="offer-grid"><p style="text-align:center;">Loading offers...</p></div>
 
-  <!-- SMART LINK FALLBACK (iframe) -->
-  <iframe src="https://quartzfiles.com/1855005" title="TechWoofer Smart Offers"></iframe>
-
-  <!-- Floating Button -->
-  <a href="https://quartzfiles.com/1855005" target="_blank" class="floating-btn">
-    🎯 Claim Offers
-  </a>
-
-  <!-- FOOTER -->
   <footer>
-    TechWoofer earns commissions per valid CPA action (no product sales).<br>
-    Offers powered by CPAGrip. © 2025 TechWoofer. All rights reserved.
+    © 2025 TechWoofer. All rights reserved.<br>
+    💰 Monetized by CPAGrip SmartLink — Earn from clicks and leads globally.
   </footer>
 
-  <!-- SCRIPT: Load CPA Offers -->
   <script>
-  const rssURL = "https://cpagrip-feed.miralbenizi7.workers.dev/";
+    const rssURL = "https://cpagrip-feed.miralbenizi7.workers.dev/";
+    const smartLink = "https://quartzfiles.com/1855005";
 
-  fetch(rssURL)
-    .then(response => {
-      if (!response.ok) throw new Error("Feed request failed");
-      return response.text();
-    })
-    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-    .then(data => {
-      const offers = data.querySelectorAll("offer");
-      const container = document.getElementById("offer-grid");
-      if (!offers.length) {
-        container.innerHTML = "<p style='text-align:center;color:#fbbf24;'>⚠️ No offers found in your region right now.</p>";
-        return;
-      }
+    fetch(rssURL)
+      .then(response => {
+        if (!response.ok) throw new Error("Feed request failed");
+        return response.text();
+      })
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => {
+        const offers = data.querySelectorAll("offer");
+        const container = document.getElementById("offer-grid");
+        container.innerHTML = "";
 
-      offers.forEach(o => {
-        const title = o.querySelector("title")?.textContent || "Untitled Offer";
-        const image = o.querySelector("offerphoto")?.textContent || "https://via.placeholder.com/300x200?text=Offer";
-        const link = (o.querySelector("offerlink")?.textContent || "#").replace("www.cpagrip.com", "quartzfiles.com");
-        const payout = o.querySelector("payout")?.textContent || "N/A";
+        if (!offers.length) {
+          container.innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ No offers available right now.</p>";
+          return;
+        }
 
-        const card = document.createElement("div");
-        card.className = "offer-card";
-        card.innerHTML = `
-          <img src="${image}" alt="${title}">
-          <h3>${title}</h3>
-          <a href="${link}" target="_blank">💰 Earn $${payout}</a>
-        `;
-        container.appendChild(card);
+        offers.forEach(o => {
+          const title = o.querySelector("title")?.textContent || "Untitled Offer";
+          const image = o.querySelector("offerphoto")?.textContent || "https://via.placeholder.com/300x200?text=Offer";
+          const offerLink = encodeURIComponent(o.querySelector("offerlink")?.textContent || "#");
+          const payout = o.querySelector("payout")?.textContent || "N/A";
+
+          // 🔁 Wrap each CPA link through your SmartLink
+          const finalLink = `${smartLink}?redirect=${offerLink}`;
+
+          const card = document.createElement("div");
+          card.className = "offer-card";
+          card.innerHTML = `
+            <img src="${image}" alt="${title}">
+            <h3>${title}</h3>
+            <a href="${finalLink}" target="_blank">💵 Earn $${payout}</a>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error("Offer loading failed:", err);
+        document.getElementById("offer-grid").innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ Could not load offers. Please try again later.</p>";
       });
-    })
-    .catch(err => {
-      console.error("Offer loading failed:", err);
-      document.getElementById("offer-grid").innerHTML = "<p style='text-align:center;color:#f87171;'>⚠️ Could not load offers. Please try again later.</p>";
-    });
-</script>
+  </script>
 
 </body>
 </html>
