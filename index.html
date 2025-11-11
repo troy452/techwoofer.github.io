@@ -144,46 +144,41 @@
   </footer>
 
   <script>
-    const apiURL = "https://cpagrip-feed.miralbenizi7.workers.dev";
+  const apiURL = "https://cpagrip-feed.miralbenizi7.workers.dev";
 
-    async function loadOffers() {
-      const container = document.getElementById("offer-grid");
-      container.innerHTML = "Loading live offers...";
+  async function loadOffers() {
+    const container = document.getElementById("offer-grid");
+    container.innerHTML = "Loading live offers...";
 
-      try {
-        const res = await fetch(apiURL);
-        if (!res.ok) throw new Error("Fetch failed");
-        const data = await res.json();
+    try {
+      const res = await fetch(apiURL);
+      const data = await res.json();
+      const offers = data.offers || [];
 
-        const offers = data.offers || [];
-        if (offers.length === 0) {
-          container.innerHTML = `<p style="text-align:center;color:#facc15;">
-            🌍 No offers available in your region right now.
-          </p>`;
-          return;
-        }
-
-        container.innerHTML = "";
-        offers.forEach(o => {
-          const card = document.createElement("div");
-          card.className = "offer-card";
-          card.innerHTML = `
-            <img src="${o.offerphoto}" alt="${o.title}">
-            <h3>${o.title}</h3>
-            <p>${o.description}</p>
-            <a href="${o.offerlink}" target="_blank">🎯 Click Here</a>
-          `;
-          container.appendChild(card);
-        });
-      } catch (err) {
-        container.innerHTML = `<p style="color:#f87171;text-align:center;">
-          ⚠️ Could not load offers. Please try again later.
-        </p>`;
+      if (offers.length === 0) {
+        container.innerHTML = `<p style="color:#facc15;text-align:center;">🌎 No offers available right now.</p>`;
+        return;
       }
-    }
 
-    loadOffers();
-  </script>
+      container.innerHTML = "";
+      offers.forEach(o => {
+        const card = document.createElement("div");
+        card.className = "offer-card";
+        card.innerHTML = `
+          <img src="${o.image}" alt="${o.title}">
+          <h3>${o.title}</h3>
+          <p>${o.description}</p>
+          <a href="${o.link}" target="_blank">🚀 Join Now</a>
+        `;
+        container.appendChild(card);
+      });
+    } catch (err) {
+      container.innerHTML = `<p style="color:#f87171;text-align:center;">⚠️ Failed to load offers.</p>`;
+    }
+  }
+
+  loadOffers();
+</script>
 
 </body>
 </html>
