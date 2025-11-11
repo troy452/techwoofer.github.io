@@ -1,0 +1,25 @@
+{
+  "offers": [
+    {
+      "title": "Claim your Mystery Box Now!",
+      "description": "Enter your information now for a chance to win.",
+      "image": "https://singingfiles.com/admin/media/offers/efb8a4a83c44764a98d0766e96d5f656.png",
+      "link": "https://singingfiles.com/show.php?l=0&u=2465402&id=70936",
+      "country": "US"
+    },
+    {
+      "title": "See how you can get a $100 Xbox Gift Card Now!",
+      "description": "Enter your information now for a chance to win.",
+      "image": "https://singingfiles.com/admin/media/offers/1a42a1a11e53fd37bcf0cce1e4514ad9.png",
+      "link": "https://singingfiles.com/show.php?l=0&u=2465402&id=72074",
+      "country": "US"
+    },
+    {
+      "title": "Reach level 1 in Bus Escape!",
+      "description": "Install and reach level 1.",
+      "image": "https://singingfiles.com/admin/media/offers/7a305c911d7ab8b46282cd3f4ee04179.png",
+      "link": "https://singingfiles.com/show.php?l=0&u=2465402&id=73055",
+      "country": "US"
+    }
+  ]
+}
