@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechWoofer — Exclusive CPA Offers | Earn from Leads</title>
-  <meta name="description" content="Discover live CPA offers from TechWoofer. Complete actions, sign up, and earn rewards instantly. Auto-updated daily from CPAGrip." />
+  <title>TechWoofer — Exclusive CPA Offers</title>
+  <meta name="description" content="Discover live CPA offers from TechWoofer. Complete actions, sign up, and get rewarded instantly." />
   <link rel="icon" href="/favicon.ico" />
   <style>
     body {
@@ -112,13 +112,13 @@
 
   <header>
     <h1>TechWoofer — Live CPA Offers</h1>
-    <p>Earn from leads. Complete offers and get rewarded instantly!</p>
+    <p>Complete simple actions and unlock instant rewards.</p>
   </header>
 
   <section class="hero">
-    <h2>🔥 Start Earning Instantly</h2>
-    <p>Explore live offers below. Each action you complete earns you cash rewards.</p>
-    <a href="#offers">💰 View Offers</a>
+    <h2>🔥 Join & Start Earning Instantly</h2>
+    <p>Choose an offer below and get started in seconds.</p>
+    <a href="#offers">🚀 View Offers</a>
   </section>
 
   <h2 class="section-title">🧩 Live CPA Offers (Auto-Updated)</h2>
@@ -126,7 +126,7 @@
 
   <footer>
     © 2025 TechWoofer. All rights reserved.<br>
-    Powered by CPAGrip — Earn per action, install, or signup.
+    Powered by CPAGrip — Earn from verified CPA actions.
   </footer>
 
   <script>
@@ -148,10 +148,13 @@
 
         offers.forEach(o => {
           const title = o.title || "Untitled Offer";
-          const desc = o.description || "Complete this offer to earn rewards.";
+          const desc = o.description || "Complete this offer to join.";
           const image = o.offerphoto || "https://via.placeholder.com/300x200?text=Offer";
           const link = o.offerlink || "#";
-          const payout = o.payout || "0.00";
+
+          // Random simple CTA text
+          const ctas = ["🎯 Join Now", "🚀 Click Here", "✅ Enter Offer", "👉 Start Now"];
+          const ctaText = ctas[Math.floor(Math.random() * ctas.length)];
 
           const card = document.createElement("div");
           card.className = "offer-card";
@@ -159,7 +162,7 @@
             <img src="${image}" alt="${title}">
             <h3>${title}</h3>
             <p>${desc}</p>
-            <a href="${link}" target="_blank">💵 Earn $${payout}</a>
+            <a href="${link}" target="_blank">${ctaText}</a>
           `;
           container.appendChild(card);
         });
