@@ -1,4 +1,5 @@
 {
+  "offers": [
     {
       "title": "Claim your Mystery Box Now!",
       "description": "Enter your information now for a chance to win.",
@@ -24,12 +25,15 @@
       "title": "Claim your $100 Wendy's Gift Card Now!",
       "description": "Enter your information now for a chance to win.",
       "image": "https://raw.githubusercontent.com/troy452/techwoofer.github.io/refs/heads/main/4.jpeg",
-      "link": "https://singingfiles.com/show.php?l=0&u=2465402&id=71614"
+      "link": "https://singingfiles.com/show.php?l=0&u=2465402&id=71614",
+      "country": "US"
     },
     {
       "title": "Reach level 1 in Bus Escape!",
       "description": "Install and reach level 1 to earn rewards.",
       "image": "https://raw.githubusercontent.com/troy452/techwoofer.github.io/refs/heads/main/5.png",
-      "link": "https://singingfiles.com/show.php?l=0&u=2465402&id=73055"
+      "link": "https://singingfiles.com/show.php?l=0&u=2465402&id=73055",
+      "country": "US"
     }
+  ]
 }
