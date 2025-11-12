@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="mylead-verification" content="288d94ad6497c6409a2130f8ac52707c">
   <title>TechWoofer — Exclusive Gaming Rewards</title>
   <style>
@@ -19,14 +19,15 @@
       font-size: 1.8rem;
       font-weight: 700;
     }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+    h2 {
+      margin-top: 20px;
+      color: #facc15;
     }
     p {
       color: #cbd5e1;
       line-height: 1.6;
+      max-width: 700px;
+      margin: 20px auto;
     }
     .buttons {
       margin-top: 30px;
@@ -56,15 +57,34 @@
       border-top: 1px solid #1e293b;
       padding: 20px;
     }
+    #loading {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      z-index: 999998;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 1.3rem;
+      color: white;
+    }
+    #loading span {
+      font-size: 1rem;
+      color: #9ca3af;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <header>TechWoofer — Exclusive Gaming Rewards</header>
 
   <main>
-    <h2>🎁 Unlock Free Gaming Bonuses</h2>
+    <h2>🎮 Unlock Free Gaming Bonuses</h2>
     <p>
-      Complete quick offers from our partners to access exclusive gaming content, discount codes, and reward opportunities.
+      Complete quick offers from our verified partners to access exclusive gaming content, discount codes, and digital rewards.
     </p>
 
     <div class="buttons">
@@ -77,21 +97,48 @@
     © 2025 TechWoofer. Rewards and offers provided via MyLead partner network.
   </footer>
 
+  <!-- Loader -->
+  <div id="loading">
+    <div>🔄 Loading secure access...</div>
+    <span>This may take a few seconds.</span>
+  </div>
+
   <script>
-    // Basic Access (1 task)
-    function openLocker1() {
-      alert("Loading secure access... please wait.");
-      const s = document.createElement("script");
-      s.src = "https://bestlocker.eu/iframeLoader/c0972446-bf09-11f0-b04d-c2a106037d45";
-      document.body.appendChild(s);
+    function showLoader() {
+      document.getElementById("loading").style.display = "flex";
     }
 
-    // Premium Access (3 tasks)
+    function openLocker(url) {
+      showLoader();
+      const iframe = document.createElement("iframe");
+      iframe.src = url;
+      Object.assign(iframe.style, {
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        border: "none",
+        zIndex: "999999"
+      });
+      document.body.appendChild(iframe);
+
+      // Fallback reload after 20s if locker doesn't load
+      setTimeout(() => {
+        const iframeExists = document.querySelector('iframe[src*="bestlocker"]');
+        if (!iframeExists) {
+          alert("Connection timeout. Please refresh and try again.");
+          location.reload();
+        }
+      }, 20000);
+    }
+
+    function openLocker1() {
+      openLocker("https://bestlocker.eu/iframe/c0972446-bf09-11f0-b04d-c2a106037d45");
+    }
+
     function openLocker2() {
-      alert("Loading premium access... please wait.");
-      const s = document.createElement("script");
-      s.src = "https://bestlocker.eu/iframeLoader/75bf4fe6-bfa1-11f0-b382-c2a106037d45";
-      document.body.appendChild(s);
+      openLocker("https://bestlocker.eu/iframe/75bf4fe6-bfa1-11f0-b382-c2a106037d45");
     }
   </script>
 </body>
