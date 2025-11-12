@@ -1,97 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="mylead-verification" content="288d94ad6497c6409a2130f8ac52707c">
-  <title>TechWoofer — Exclusive ROBOLOX Rewards</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechWoofer — Exclusive Gaming Rewards</title>
   <style>
     body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #0f172a;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b1221;
       color: #fff;
       text-align: center;
+      margin: 0;
     }
     header {
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-      padding: 40px 20px;
-      font-size: 1.8rem;
-      font-weight: 700;
+      background: linear-gradient(90deg, #6a5acd, #9d4edd);
+      padding: 40px 0;
+      font-size: 2rem;
+      font-weight: bold;
     }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+    h2 {
+      margin-top: 30px;
+      font-size: 1.4rem;
     }
     p {
-      color: #cbd5e1;
-      line-height: 1.6;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 30px;
     }
     .buttons {
-      margin-top: 30px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
     button {
-      background: #2563eb;
-      color: #fff;
+      background: #2b50ff;
       border: none;
-      padding: 14px 28px;
-      border-radius: 8px;
+      color: white;
+      padding: 14px 30px;
       font-size: 1rem;
-      font-weight: 600;
+      border-radius: 10px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
-    button:hover {
-      background: #1d4ed8;
+    button:hover { background: #5b7bff; }
+    #lockerOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      color: white;
+      flex-direction: column;
     }
-    footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #9ca3af;
-      border-top: 1px solid #1e293b;
-      padding: 20px;
+    #lockerOverlay iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .generator-image {
+      margin-top: 40px;
+      max-width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
 <body>
-  <header>TechWoofer — Exclusive ROBOLOX Rewards</header>
+  <header>🎮 TechWoofer — Exclusive Gaming Rewards</header>
 
-  <main>
-    <h2>🎁 Unlock Free ROBOLOX Bonuses</h2>
-    <p>
-      Complete quick offers from our partners to access exclusive gaming content, discount codes, and reward opportunities.
-    </p>
+  <h2>🔓 Unlock Free Gaming Bonuses</h2>
+  <p>Complete quick offers from our verified partners to access exclusive gaming content, discount codes, and digital rewards.</p>
 
-    <div class="buttons">
-      <button onclick="openLocker1()">⚡ Basic Access (1 Task)</button>
-      <button onclick="openLocker2()">🔥 Premium Access (3 Tasks)</button>
-    </div>
-  </main>
+  <div class="buttons">
+    <button onclick="openLocker1()">⚡ Basic Access (1 Task)</button>
+    <button onclick="openLocker2()">🔥 Premium Access (3 Tasks)</button>
+  </div>
 
-  <footer>
+  <!-- Added game generator image -->
+  <img src="1.jpeg" alt="Game Generator" class="generator-image" />
+
+  <div id="lockerOverlay">
+    <p id="loadingText">Loading secure access... please wait.</p>
+  </div>
+
+  <footer style="margin-top: 50px; color: #555; font-size: 0.9rem;">
     © 2025 TechWoofer. Rewards and offers provided via MyLead partner network.
   </footer>
 
   <script>
-    // Basic Access (1 task)
-    function openLocker1() {
-      alert("Loading secure access... please wait.");
-      const s = document.createElement("script");
-      s.src = "https://bestlocker.eu/iframeLoader/c0972446-bf09-11f0-b04d-c2a106037d45";
-      document.body.appendChild(s);
+    const lockerOverlay = document.getElementById("lockerOverlay");
+    const loadingText = document.getElementById("loadingText");
+
+    function openLocker(url) {
+      lockerOverlay.style.display = "flex";
+      const iframe = document.createElement("iframe");
+      iframe.src = url;
+      iframe.onload = () => { loadingText.style.display = "none"; };
+      lockerOverlay.appendChild(iframe);
+
+      setTimeout(() => {
+        if (loadingText.style.display !== "none") {
+          loadingText.innerText = "Still loading... Offers may be region-restricted or slow to connect.";
+        }
+      }, 15000);
     }
 
-    // Premium Access (3 tasks)
+    function openLocker1() {
+      openLocker("https://bestlocker.eu/iframe/c0972446-bf09-11f0-b04d-c2a106037d45");
+    }
+
     function openLocker2() {
-      alert("Loading premium access... please wait.");
-      const s = document.createElement("script");
-      s.src = "https://bestlocker.eu/iframeLoader/75bf4fe6-bfa1-11f0-b382-c2a106037d45";
-      document.body.appendChild(s);
+      openLocker("https://bestlocker.eu/iframe/75bf4fe6-bfa1-11f0-b382-c2a106037d45");
     }
   </script>
 </body>
