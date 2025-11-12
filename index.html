@@ -104,42 +104,51 @@
   </div>
 
   <script>
-    function showLoader() {
-      document.getElementById("loading").style.display = "flex";
-    }
+  function showLoader() {
+    document.getElementById("loading").style.display = "flex";
+  }
 
-    function openLocker(url) {
-      showLoader();
-      const iframe = document.createElement("iframe");
-      iframe.src = url;
-      Object.assign(iframe.style, {
-        position: "fixed",
-        top: "0",
-        left: "0",
-        width: "100%",
-        height: "100%",
-        border: "none",
-        zIndex: "999999"
-      });
-      document.body.appendChild(iframe);
+  function hideLoader() {
+    document.getElementById("loading").style.display = "none";
+  }
 
-      // Fallback reload after 20s if locker doesn't load
-      setTimeout(() => {
-        const iframeExists = document.querySelector('iframe[src*="bestlocker"]');
-        if (!iframeExists) {
-          alert("Connection timeout. Please refresh and try again.");
-          location.reload();
-        }
-      }, 20000);
-    }
+  function openLocker(url) {
+    showLoader();
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    Object.assign(iframe.style, {
+      position: "fixed",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+      border: "none",
+      zIndex: "999999"
+    });
 
-    function openLocker1() {
-      openLocker("https://bestlocker.eu/iframe/c0972446-bf09-11f0-b04d-c2a106037d45");
-    }
+    // Hide the loader when the iframe finishes loading
+    iframe.onload = () => {
+      hideLoader();
+    };
 
-    function openLocker2() {
-      openLocker("https://bestlocker.eu/iframe/75bf4fe6-bfa1-11f0-b382-c2a106037d45");
-    }
-  </script>
+    document.body.appendChild(iframe);
+
+    // Fallback if it still doesn’t load after 20 seconds
+    setTimeout(() => {
+      if (document.getElementById("loading").style.display === "flex") {
+        hideLoader();
+        alert("The content took too long to load. Please refresh or try again later.");
+      }
+    }, 20000);
+  }
+
+  function openLocker1() {
+    openLocker("https://bestlocker.eu/iframe/c0972446-bf09-11f0-b04d-c2a106037d45");
+  }
+
+  function openLocker2() {
+    openLocker("https://bestlocker.eu/iframe/75bf4fe6-bfa1-11f0-b382-c2a106037d45");
+  }
+</script>
 </body>
 </html>
