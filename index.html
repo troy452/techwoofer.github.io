@@ -1,357 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TechWoofer — GameBounty Reward Codes</title>
-
-  <!-- MyLead site verification token (you gave this) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mylead-verification" content="288d94ad6497c6409a2130f8ac52707c">
-
-  <!-- Minimal styling (copy into your real CSS if you have one) -->
+  <title>TechWoofer — Exclusive Gaming Rewards</title>
   <style>
-    :root{
-      --bg:#0f1724; --card:#121826; --muted:#9ca3af; --accent:#fbbf24; --cta:#2563eb;
-      --card-round:12px; --text:#e6eef8;
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
     }
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);}
-    header{background:linear-gradient(90deg,#6d28d9,#2563eb);padding:40px 20px;text-align:center;font-weight:700;font-size:28px;}
-    .container{max-width:1200px;margin:30px auto;padding:0 18px;}
-    .subtitle{color:var(--accent);text-align:center;margin:12px 0;font-weight:700;}
-    .lead{color:var(--muted);text-align:center;margin-bottom:24px;}
-    .generators{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:30px;}
-    .card{background:var(--card);border-radius:var(--card-round);padding:18px;box-shadow:0 8px 24px rgba(3,7,18,0.6);}
-    .card h3{margin:6px 0 8px;font-size:18px;}
-    .card p{color:var(--muted);font-size:14px;min-height:48px}
-    .btn{display:inline-block;background:var(--cta);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;cursor:pointer;border:0}
-    .small{font-size:13px;color:var(--muted)}
-    .flex{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-    .badge{background:#0b1220;padding:6px 10px;border-radius:8px;color:var(--muted);font-weight:600}
-    .offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}
-    .offer-card{background:#0e1620;border-radius:10px;padding:12px;text-align:center}
-    .offer-card img{width:100%;height:110px;object-fit:cover;border-radius:8px}
-    footer{color:var(--muted);text-align:center;margin:36px 0;font-size:13px}
-
-    /* modal / iframe container */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;z-index:9999}
-    .modal{width:980px;max-width:98%;height:80vh;background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
-    .modal header{padding:10px 16px;background:#0b1220;color:#fff;display:flex;justify-content:space-between;align-items:center}
-    .modal .close{background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer}
-    .modal .iframe-wrap{flex:1;background:#000}
-    .notice{background:#06202e;color:#bff0ff;padding:10px;border-radius:8px;margin-bottom:12px}
-    .muted{color:var(--muted)}
+    header {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      padding: 40px 20px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    p {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      border-top: 1px solid #1e293b;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
+  <header>TechWoofer — Exclusive Gaming Rewards</header>
 
-  <header>TechWoofer — GameBounty Rewards</header>
+  <main>
+    <h2>🎁 Unlock Free Gaming Bonuses</h2>
+    <p>
+      Complete quick offers from our partners to access exclusive gaming content, discount codes, and reward opportunities.
+    </p>
 
-  <div class="container">
-    <div class="subtitle">🇺🇸🇨🇦🇬🇧 Live Game Rewards — Gaming / Roblox</div>
-    <div class="lead">Complete partner offers to unlock reward codes. This is a legit offerwall flow using MyLead content locker. You must complete the required offers to get a code. No hacking, no scams — just partner offers.</div>
-
-    <!-- GENERATORS -->
-    <div class="generators">
-      <!-- Generator #1: One-time limited (requires 1 offer) -->
-      <div class="card">
-        <h3>Generator #1 — Single Use (Daily limited)</h3>
-        <p>Get a one-time reward code valid for a limited number of codes per 24h. Complete <strong>1</strong> offer to unlock a single code. Use responsibly.</p>
-        <div class="flex" style="margin-top:10px">
-          <button class="btn" data-mode="one" id="openLockerOne">🔒 Unlock 1-Code (Complete 1 Offer)</button>
-          <div class="badge small">Daily limit: controlled by host</div>
-        </div>
-        <p class="small" style="margin-top:8px">After you finish the offer(s) in the locker, you'll be returned here and shown a code (if available).</p>
-      </div>
-
-      <!-- Generator #2: Unlimited after completing 5 offers -->
-      <div class="card">
-        <h3>Generator #2 — Unlimited After Unlock</h3>
-        <p>Complete <strong>5</strong> offers once to permanently unlock unlimited reward generations for your account on this device (per rules). Use the “Unlock Unlimited” button to start.</p>
-        <div class="flex" style="margin-top:10px">
-          <button class="btn" data-mode="many" id="openLockerMany">🔓 Unlock Unlimited (Complete 5 Offers)</button>
-          <div class="badge small">After unlock: unlimited generations</div>
-        </div>
-        <p class="small" style="margin-top:8px">This page stores your unlock state locally in the browser (clearing cookies or using a new device may require re-unlocking).</p>
-      </div>
+    <div class="buttons">
+      <button onclick="openLocker1()">⚡ Basic Access (1 Task)</button>
+      <button onclick="openLocker2()">🔥 Premium Access (3 Tasks)</button>
     </div>
+  </main>
 
-    <!-- Live offers from local file first, then remote feed (transparent fallback) -->
-    <div style="margin-top:8px" class="muted">Local fallback offers (shown first), combined with live partner offers when available.</div>
-    <div id="offers" class="offers-grid" aria-live="polite">
-      <!-- JS will populate -->
-    </div>
-
-    <footer>© 2025 TechWoofer — Use offers responsibly. Powered by MyLead. Offers vary by country and availability.</footer>
-  </div>
-
-  <!-- Modal for locker iframe -->
-  <div id="modal" class="modal-backdrop">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="offers locker">
-      <header>
-        <div style="font-weight:700">Complete Offers to Unlock</div>
-        <div><button class="close" id="closeModal">✕</button></div>
-      </header>
-      <div style="padding:12px">
-        <div class="notice">A new window will open (embedded) where you must complete required offers. When you finish, close the locker and return to this page to claim your code.</div>
-      </div>
-      <div class="iframe-wrap" id="iframeWrap">
-        <!-- iframe will be injected here -->
-      </div>
-    </div>
-  </div>
+  <footer>
+    © 2025 TechWoofer. Rewards and offers provided via MyLead partner network.
+  </footer>
 
   <script>
-    /**************************************************************************
-     * CONFIG - replace these if MyLead provides different URLs/scripts.
-     *
-     * LOCKER_IFRAME_URL: the url MyLead gave for the locker iframe (from your screenshot)
-     * LOCKER_SCRIPT_SRC: if you prefer to load a script instead, you can add it.
-     *
-     * NOTE: The locker itself enforces offer completion counts. Configure the
-     * locker settings in MyLead:
-     *  - generator #1: require 1 offer
-     *  - generator #2: require 5 offers
-     *
-     **************************************************************************/
-    const LOCKER_IFRAME_URL = "https://bestlocker.eu/iframe/c0972446-bf09-11f0-b04d-c2a106037d45";
-    // optional script (not strictly required if using iframe) - keep commented unless you have explicit script.
-    // const LOCKER_SCRIPT_SRC = "https://bestlocker.eu/iframeLoader/c0972446-bf09-11f0-b04d-c2a106037d45";
-
-    // local offers file (fallback): you must create offers.json with { "offers": [ ... ] } in your root
-    const LOCAL_OFFERS = "/offers.json";
-
-    // remote feed (optional): if you have a worker proxy or api, set it here - else it will quietly fail
-    const REMOTE_FEED = "https://cpagrip-feed.miralbenizi7.workers.dev"; // adjust or remove if not used
-
-    // ----- UI + modal logic -----
-    const modal = document.getElementById("modal");
-    const iframeWrap = document.getElementById("iframeWrap");
-    const openOne = document.getElementById("openLockerOne");
-    const openMany = document.getElementById("openLockerMany");
-    const closeModalBtn = document.getElementById("closeModal");
-
-    // store unlock status locally (simple approach)
-    const UNLOCK_KEY = "techwoofer_generator_unlocked_v1"; // store if unlimited unlocked
-
-    openOne.addEventListener("click", () => openLocker("one"));
-    openMany.addEventListener("click", () => openLocker("many"));
-    closeModalBtn.addEventListener("click", closeLocker);
-
-    function openLocker(mode){
-      // mode = "one" or "many"
-      // Build iframe url with a param telling the locker which flow we want (locker server may ignore if not configured)
-      const url = new URL(LOCKER_IFRAME_URL);
-      url.searchParams.set("mode", mode);
-      // pass a tracking_id if you want (optional)
-      // url.searchParams.set("tracking_id", "user123");
-
-      // inject iframe
-      iframeWrap.innerHTML = "";
-      const ifr = document.createElement("iframe");
-      ifr.src = url.toString();
-      ifr.style.width = "100%";
-      ifr.style.height = "100%";
-      ifr.style.border = "0";
-      // sandbox attributes can be applied if needed by locker provider
-      ifr.allow = "geolocation *; microphone *; camera *; display-capture *; clipboard-write *;";
-      iframeWrap.appendChild(ifr);
-      // show modal
-      modal.style.display = "flex";
-      // scroll to top (visual)
-      window.scrollTo({top:0,behavior:"smooth"});
+    // Basic Access (1 task)
+    function openLocker1() {
+      alert("Loading secure access... please wait.");
+      const s = document.createElement("script");
+      s.src = "https://bestlocker.eu/iframeLoader/c0972446-bf09-11f0-b04d-c2a106037d45";
+      document.body.appendChild(s);
     }
 
-    function closeLocker(){
-      // close and remove iframe
-      iframeWrap.innerHTML = "";
-      modal.style.display = "none";
-
-      // When locker closes, we cannot reliably detect completion from iframe due to cross-origin.
-      // Instead: you must configure MyLead to redirect to a "success" url on completion OR use postMessage support
-      // If the locker supports redirecting to a specific callback URL, you can have it callback to an endpoint
-      // we control; for simplicity, provide a manual "I finished" claim (or auto-check via your backend).
-      checkForCompletionPrompt();
+    // Premium Access (3 tasks)
+    function openLocker2() {
+      alert("Loading premium access... please wait.");
+      const s = document.createElement("script");
+      s.src = "https://bestlocker.eu/iframeLoader/75bf4fe6-bfa1-11f0-b382-c2a106037d45";
+      document.body.appendChild(s);
     }
-
-    // Simple manual prompt to claim code after completing offers
-    function checkForCompletionPrompt(){
-      const ok = confirm("After completing offers in the locker, click OK to claim your code. If you completed the required offers, you'll see your code. (If not, complete the offers first.)");
-      if(!ok) return;
-      // call the local "claim" routine
-      claimCode();
-    }
-
-    /**************************************************************************
-     * CLAIMING LOGIC (front-end demo)
-     * In a real integration you should:
-     * - configure the locker/offerwall to redirect to your server on completion,
-     * - verify completion using MyLead APIs or server-side postbacks,
-     * - then issue / store the reward codes server-side.
-     *
-     * Below is a front-end demo: after user confirms completion, we:
-     * - for "one" mode: check daily use limit and show a code from a small local pool
-     * - for unlimited mode: if user unlocked (we check local storage) show code; otherwise
-     *   prompt that they must finish 5 offers (the locker should have enforced that)
-     *
-     * IMPORTANT: This demo does not prevent abuse (clearing storage will remove unlock status).
-     **************************************************************************/
-
-    // small local pool of demo codes (replace with server-generated codes for production)
-    const DEMO_CODES = [
-      "GW-ROB-100-A1",
-      "GW-ROB-200-B2",
-      "GW-ROB-300-C3",
-      "GW-ROB-400-D4",
-      "GW-ROB-500-E5"
-    ];
-
-    // simple daily usage state (for one-time daily generator)
-    const DAILY_KEY = "techwoofer_daily_used_at_v1";
-
-    function claimCode(){
-      // Determine which generator the user just used by asking
-      const choice = prompt("Which generator did you complete offers for? Type 1 for single-use generator or 2 for unlimited generator.");
-      if(!choice) return;
-      if(choice === "1"){
-        // check daily limit: allow one code per 24h per browser
-        const usedAt = localStorage.getItem(DAILY_KEY);
-        const now = Date.now();
-        if(usedAt && now - parseInt(usedAt,10) < 24*3600*1000){
-          alert("Sorry — single-use generator already used in the last 24 hours on this device. Try again later.");
-          return;
-        }
-        // show a code from pool (pop)
-        const code = DEMO_CODES.shift() || ("GW-ROB-"+Math.floor(100+Math.random()*900));
-        localStorage.setItem(DAILY_KEY, now.toString());
-        showCodePopup(code, "Single-use code — valid now");
-      } else if(choice === "2"){
-        // unlimited: verify unlock or prompt user to unlock
-        const unlocked = localStorage.getItem(UNLOCK_KEY);
-        if(unlocked === "1"){
-          const code = "GW-ROB-UNL-"+Math.floor(1000+Math.random()*9000);
-          showCodePopup(code, "Unlimited-generation code (you are unlocked)");
-        } else {
-          // if user claims they completed 5 offers but not unlocked, we offer to set unlocked locally
-          const confirmUnlock = confirm("If you finished the 5 offers required to unlock unlimited generation, click OK to register the unlock locally. (For robust systems you must verify server-side.)");
-          if(confirmUnlock){
-            localStorage.setItem(UNLOCK_KEY,"1");
-            alert("Unlocked locally. You can now generate unlimited codes on this device.");
-          } else {
-            alert("You need to complete 5 offers to unlock unlimited generation.");
-          }
-        }
-      } else {
-        alert("Invalid selection.");
-      }
-    }
-
-    function showCodePopup(code, note){
-      // simple popup with code and copy-to-clipboard
-      const win = window.open("", "_blank", "width=420,height=260");
-      if(!win) {
-        alert("Your browser blocked popup windows. Here's your code: " + code);
-        return;
-      }
-      win.document.write("<body style='font-family:Arial;padding:20px;background:#0b1220;color:#fff;text-align:center;'><h2 style='margin-top:0'>Your Reward Code</h2><div style='font-size:20px;background:#071226;padding:12px;border-radius:8px;margin:12px 0;letter-spacing:2px'>"+code+"</div><div style='color:#9ca3af;margin-bottom:12px'>"+(note||"")+"</div><button id='copy' style='padding:10px 16px;border-radius:8px;background:#16a34a;color:#fff;border:0;cursor:pointer'>Copy</button><p style='margin-top:10px;color:#9ca3af;font-size:13px'>Codes are demo-only. For production use a server-side issuance system.</p></body>");
-      win.document.close();
-      win.document.getElementById("copy").onclick = function(){
-        navigator.clipboard.writeText(code).then(()=>{alert("Code copied to clipboard");}).catch(()=>{alert("Copy failed — manually select and copy the code");});
-      };
-    }
-
-    /**************************************************************************
-     * OFFERS loader (local + remote)
-     **************************************************************************/
-    async function loadOffers(){
-      const container = document.getElementById("offers");
-      container.innerHTML = "<div class='muted' style='grid-column:1/-1;text-align:center'>Loading offers...</div>";
-
-      // try local first
-      let local = [];
-      try{
-        const res = await fetch(LOCAL_OFFERS, {cache:"no-store"});
-        if(res.ok){
-          const json = await res.json();
-          local = Array.isArray(json.offers) ? json.offers : [];
-        }
-      }catch(e){
-        // ignore
-      }
-
-      // try remote feed (optional)
-      let remote = [];
-      try{
-        const r = await fetch(REMOTE_FEED, {cache:"no-store"});
-        if(r.ok){
-          const json = await r.json();
-          // adapt both structures: expect {offers: [...] } or {offers: array of objects with title,image,link}
-          remote = Array.isArray(json.offers) ? json.offers : (json.offers || []);
-        }
-      }catch(e){
-        // ignore remote failures
-      }
-
-      const merged = mergeOffers(local, remote);
-      if(merged.length===0){
-        container.innerHTML = "<div class='muted' style='grid-column:1/-1;text-align:center'>No offers available.</div>";
-        return;
-      }
-      container.innerHTML = merged.map(o => offerCardHtml(o)).join("");
-      // attach click handler to any "Join Offer" (these open the offer link in new tab - we keep transparency)
-      document.querySelectorAll(".offer-join").forEach(btn=>{
-        btn.addEventListener("click", (ev)=>{
-          ev.preventDefault();
-          const href = btn.getAttribute("data-href");
-          if(!href) return;
-          window.open(href, "_blank");
-        });
-      });
-    }
-
-    function mergeOffers(local, remote){
-      const seen = new Set();
-      const out = [];
-      // local first
-      for(const o of local){
-        const key = (o.title||"").trim().toLowerCase();
-        if(!key) continue;
-        if(!seen.has(key)){ seen.add(key); out.push(o); }
-      }
-      for(const o of remote){
-        const key = (o.title||"").trim().toLowerCase();
-        if(!key) continue;
-        if(!seen.has(key)){ seen.add(key); out.push(o); }
-      }
-      return out;
-    }
-
-    function offerCardHtml(o){
-      const img = o.image || "https://via.placeholder.com/400x220?text=Offer";
-      const title = escapeHtml(o.title || "Offer");
-      const desc = escapeHtml(o.description || "");
-      const link = o.link || "#";
-      return `<div class="offer-card card" role="article" aria-label="${title}">
-        <img src="${img}" alt="${title}">
-        <h4 style="color:#fff;font-size:15px;margin:8px 0">${title}</h4>
-        <p class="small" style="min-height:40px">${desc}</p>
-        <div style="margin-top:8px"><button class="btn offer-join" data-href="${link}">🎁 Join Offer</button></div>
-      </div>`;
-    }
-
-    function escapeHtml(s){
-      return String(s).replace(/[&<>"]/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
-    }
-
-    // init
-    loadOffers();
-
-    /**************************************************************************
-     * NOTES / next steps for production
-     * - Replace DEMO_CODES with server-generated, one-time codes stored in DB.
-     * - Use server-side verification of offer completion (MyLead provides postback/callbacks).
-     * - Do NOT claim to generate real game currency — always be transparent to users.
-     * - For strict anti-abuse, tie unlocks to account logins or require phone/email verification.
-     **************************************************************************/
   </script>
 </body>
 </html>
