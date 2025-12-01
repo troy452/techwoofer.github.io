@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechWoofer - Premium Economics Courses</title>
+    <title>TechWoofer - Premium Economics Library</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -26,6 +26,10 @@
     <style>
         .course-card:hover { transform: translateY(-5px); }
         .locked-overlay { background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+        /* Custom scrollbar for modal */
+        .modal-scroll::-webkit-scrollbar { width: 8px; }
+        .modal-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        .modal-scroll::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -34,12 +38,12 @@
     <nav class="bg-white shadow-sm sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
                     <i class="fa-solid fa-chart-line text-brand-600 text-2xl"></i>
                     <span class="font-bold text-xl text-gray-900">TechWoofer</span>
                 </div>
-                <button onclick="triggerLocker()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition">
-                    Member Login
+                <button onclick="triggerLocker()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition shadow-md">
+                    <i class="fa-solid fa-user-graduate mr-2"></i> Student Login
                 </button>
             </div>
         </div>
@@ -50,16 +54,16 @@
         <div class="max-w-7xl mx-auto">
             <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 px-4 sm:px-6 lg:px-8 pt-10">
                 <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                    <span class="block">Master the principles of</span>
-                    <span class="block text-brand-600">Modern Economics</span>
+                    <span class="block">Access World-Class</span>
+                    <span class="block text-brand-600">Economics Courses</span>
                 </h1>
                 <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl">
-                    Premium video tutorials on Microeconomics, Finance, Game Theory, and Global Markets.
+                    Unlock premium tutorials from top universities like Columbia, UPenn, and Erasmus. Master Money, Banking, Policy, and Global Markets.
                 </p>
                 <div class="mt-5 sm:mt-8 sm:flex">
                     <div class="rounded-md shadow">
-                        <button onclick="triggerLocker()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-600 hover:bg-brand-700 md:py-4 md:text-lg">
-                            Start Learning
+                        <button onclick="triggerLocker()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-600 hover:bg-brand-700 md:py-4 md:text-lg transition">
+                            Unlock Full Library
                         </button>
                     </div>
                 </div>
@@ -74,116 +78,262 @@
     <div class="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-gray-900">Available Courses</h2>
-                <p class="mt-4 text-gray-500">All content is premium and requires verification to access.</p>
+                <h2 class="text-3xl font-extrabold text-gray-900">Featured Curriculum</h2>
+                <div class="w-24 h-1 bg-brand-600 mx-auto mt-4 mb-4 rounded"></div>
+                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">Select a course to begin. All materials are premium and protected by our secure content locker.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Card 1 -->
-                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
-                    <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fa-solid fa-lock text-white text-4xl"></i>
-                        </div>
-                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Microeconomics 101</h3>
-                        <p class="text-gray-600 text-sm mb-4">Supply, demand, and market equilibrium fundamentals.</p>
-                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
-                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                <!-- Course 1 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
                     <div class="h-48 relative">
                         <img src="https://images.unsplash.com/photo-1611974765270-ca12586343bb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                         <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
+                        <div class="absolute top-2 right-2 bg-brand-600 text-white px-2 py-1 rounded text-xs font-bold shadow">TOP RATED</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Corporate Finance</h3>
-                        <p class="text-gray-600 text-sm mb-4">Valuation, capital budgeting, and risk management.</p>
-                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
-                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Columbia University</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Economics of Money and Banking</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Evolution of institutions in the modern monetary system and central banking.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.9 (1.3K reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                <!-- Course 2 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
                     <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                         <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Macroeconomic Theory</h3>
-                        <p class="text-gray-600 text-sm mb-4">GDP, inflation, unemployment, and fiscal policy.</p>
-                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
-                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">University of Pennsylvania</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Microeconomics: The Power of Markets</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Understanding supply, demand, and market equilibrium in daily decision making.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.7 (56 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 4 -->
-                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                <!-- Course 3 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
                     <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                         <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Game Theory</h3>
-                        <p class="text-gray-600 text-sm mb-4">Strategic decision making and Nash equilibrium.</p>
-                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
-                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Erasmus University</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Introduction to Economic Theories</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Why economists sometimes fail to predict serious financial crises.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.4 (224 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 5 -->
-                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                <!-- Course 4 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
                     <div class="h-48 relative">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                         <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Econometrics</h3>
-                        <p class="text-gray-600 text-sm mb-4">Statistical methods for economic data analysis.</p>
-                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
-                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Udemy</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Behavioral Economics Fundamentals</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">A brief introduction to the principles and research of behavioural economics.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.5 (Beginner)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 6 -->
-                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                <!-- Course 5 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
                     <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                         <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cryptoeconomics</h3>
-                        <p class="text-gray-600 text-sm mb-4">Digital assets, DeFi, and blockchain markets.</p>
-                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
-                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">IE Business School</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Business Opportunities in Global Economy</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Globalization, economic growth, and stability specialization.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.8 (Expert)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 6 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1566093097221-8563d3206fee?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Science Po</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Politics and Economics of Int. Energy</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">The complex intersection of energy markets and international politics.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.7 (125 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 7 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1625246333195-58197bd47f3b?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">TU München</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Economics of Agro-Food Value Chains</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Supply chain mechanics and economics in the agricultural sector.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.4 (186 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 8 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Tel Aviv University</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Economic Growth and Distributive Justice</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Inequality of income, wealth, and its correlation with economic growth.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.7 (31 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- Course 9 -->
+                 <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Erasmus University</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Earth Economics</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Ecological economics and sustainable resource management.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-regular fa-clock mr-1"></i> 22 Hours
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 10 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Udemy</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Master 5 Economic Concepts</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Crash course: Become an Economist in less than 1 hour!</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.4 (371 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 11 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">Erasmus University</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Local Economic Development</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Strategies for developing local economies in a global context.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.8 (2 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 12 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group border border-gray-100">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-brand-600 mb-1 uppercase tracking-wide">IE Business School</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">Understanding Economic Policymaking</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Fiscal and monetary policy analysis for business leaders.</p>
+                        <div class="flex items-center text-xs text-gray-400 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.8 (84 reviews)
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2 group-hover:bg-brand-600 group-hover:text-white">
+                            <i class="fa-solid fa-lock text-xs"></i> Access Content
                         </button>
                     </div>
                 </div>
@@ -201,36 +351,43 @@
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
             <!-- Modal Content -->
-            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full p-6">
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full p-6 animate-[bounce-in_0.3s_ease-out]">
                 <div class="sm:flex sm:items-start">
                     <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                         <i class="fa-solid fa-lock text-red-600"></i>
                     </div>
                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                            Restricted Content
+                        <h3 class="text-lg leading-6 font-bold text-gray-900" id="modal-title">
+                            Premium Content Locked
                         </h3>
                         <div class="mt-2">
                             <p class="text-sm text-gray-500">
-                                This economics course material is locked. You must complete a quick human verification to access the download files.
+                                This specialized economics material is protected by TechWoofer. To access the video lectures and PDF resources, please complete the human verification.
                             </p>
-                            <div class="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
+                            <div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                                 <div class="flex items-center justify-between mb-2">
-                                    <span class="text-xs font-bold text-gray-600 uppercase">Verification Required</span>
-                                    <i class="fa-solid fa-shield-halved text-brand-600"></i>
+                                    <span class="text-xs font-bold text-gray-600 uppercase tracking-wider">Access Status</span>
+                                    <div class="flex items-center text-red-600 text-xs font-bold uppercase">
+                                        <span class="relative flex h-2 w-2 mr-2">
+                                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                          <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                        </span>
+                                        Locked
+                                    </div>
                                 </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-red-500 h-2 rounded-full" style="width: 25%"></div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-brand-600 h-2.5 rounded-full shadow-sm" style="width: 15%"></div>
                                 </div>
+                                <p class="text-[10px] text-right text-gray-400 mt-1">Verification Required</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button type="button" onclick="goToLocker()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-brand-600 text-base font-medium text-white hover:bg-brand-700 sm:ml-3 sm:w-auto">
-                        Verify & Unlock
+                <div class="mt-6 sm:mt-6 sm:flex sm:flex-row-reverse gap-3">
+                    <button type="button" onclick="goToLocker()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-md px-4 py-2 bg-brand-600 text-base font-medium text-white hover:bg-brand-700 sm:w-auto transition-colors">
+                        Verify & Unlock Now
                     </button>
-                    <button type="button" onclick="closeLocker()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                    <button type="button" onclick="closeLocker()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:w-auto transition-colors">
                         Cancel
                     </button>
                 </div>
@@ -240,7 +397,7 @@
 
     <!-- Logic Script -->
     <script>
-        // YOUR LOCKER URL
+        // YOUR SPECIFIC LOCKER URL
         const LOCKER_URL = "https://redirectapps.org/cl/i/gr6w61";
 
         function triggerLocker() {
@@ -256,6 +413,9 @@
         function goToLocker() {
             window.location.href = LOCKER_URL;
         }
+        
+        // Add basic bounce animation support
+        document.head.insertAdjacentHTML("beforeend", `<style>@keyframes bounce-in {0% {transform: scale(0.9); opacity: 0;} 100% {transform: scale(1); opacity: 1;}}</style>`)
     </script>
 </body>
 </html>
