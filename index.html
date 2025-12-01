@@ -1,161 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechWoofer — Exclusive Gaming Rewards</title>
-  <style>
-    /* === PAGE BASE === */
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      text-align: center;
-      margin: 0;
-      background: url('wallpaper.jpg') no-repeat center center fixed;
-      background-size: cover;
-      backdrop-filter: brightness(0.4);
-    }
-
-    /* Overlay to make text readable on bright wallpapers */
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
-    }
-
-    header {
-      background: linear-gradient(90deg, rgba(106,90,205,0.9), rgba(157,78,221,0.9));
-      padding: 40px 0;
-      font-size: 2rem;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    h2 {
-      margin-top: 30px;
-      font-size: 1.5rem;
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255,255,255,0.3);
-    }
-
-    p {
-      color: #ddd;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.5;
-    }
-
-    /* Buttons */
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      background: linear-gradient(90deg, #2b50ff, #5b7bff);
-      border: none;
-      color: white;
-      padding: 14px 30px;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.3s ease;
-      box-shadow: 0 0 15px rgba(91,123,255,0.4);
-    }
-
-    button:hover {
-      background: linear-gradient(90deg, #5b7bff, #7d93ff);
-      transform: scale(1.05);
-    }
-
-    /* Locker overlay */
-    #lockerOverlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      color: white;
-      flex-direction: column;
-    }
-
-    #lockerOverlay iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Generator image */
-    .generator-image {
-      margin-top: 40px;
-      max-width: 90%;
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-    }
-
-    footer {
-      margin-top: 50px;
-      color: #aaa;
-      font-size: 0.9rem;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-  </style>
-</head>
-<body>
-  <div class="overlay"></div>
-
-  <header>🎮 TechWoofer — Exclusive Gaming Rewards</header>
-
-  <h2>🔓 Unlock Free Gaming Bonuses</h2>
-  <p>Complete quick offers from our verified partners to access exclusive gaming content, discount codes, and digital rewards.</p>
-
-  <div class="buttons">
-    <button onclick="openLocker1()">⚡ Basic Access (1 Task)</button>
-    <button onclick="openLocker2()">🔥 Premium Access (3 Tasks)</button>
-  </div>
-
-  <!-- MyLead Locker Overlay -->
-  <div id="lockerOverlay">
-    <p id="loadingText">Loading secure access... please wait.</p>
-  </div>
-
-  <footer>
-    © 2025 TechWoofer. Rewards and offers provided via MyLead partner network.
-  </footer>
-
-  <script>
-    const lockerOverlay = document.getElementById("lockerOverlay");
-    const loadingText = document.getElementById("loadingText");
-
-    function openLocker(url) {
-      lockerOverlay.style.display = "flex";
-      const iframe = document.createElement("iframe");
-      iframe.src = url;
-      iframe.onload = () => { loadingText.style.display = "none"; };
-      lockerOverlay.appendChild(iframe);
-
-      // Show fallback text if loading is slow
-      setTimeout(() => {
-        if (loadingText.style.display !== "none") {
-          loadingText.innerText = "Still loading... Offers may be region-restricted or slow to connect.";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWoofer - Premium Economics Courses</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' }
+                    }
+                }
+            }
         }
-      }, 15000);
-    }
+    </script>
+    <style>
+        .course-card:hover { transform: translateY(-5px); }
+        .locked-overlay { background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
-    function openLocker1() {
-      openLocker("https://bestlocker.eu/iframe/c0972446-bf09-11f0-b04d-c2a106037d45");
-    }
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-brand-600 text-2xl"></i>
+                    <span class="font-bold text-xl text-gray-900">TechWoofer</span>
+                </div>
+                <button onclick="triggerLocker()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition">
+                    Member Login
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    function openLocker2() {
-      openLocker("https://bestlocker.eu/iframe/75bf4fe6-bfa1-11f0-b382-c2a106037d45");
-    }
-  </script>
+    <!-- Hero -->
+    <div class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 px-4 sm:px-6 lg:px-8 pt-10">
+                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                    <span class="block">Master the principles of</span>
+                    <span class="block text-brand-600">Modern Economics</span>
+                </h1>
+                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl">
+                    Premium video tutorials on Microeconomics, Finance, Game Theory, and Global Markets.
+                </p>
+                <div class="mt-5 sm:mt-8 sm:flex">
+                    <div class="rounded-md shadow">
+                        <button onclick="triggerLocker()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-600 hover:bg-brand-700 md:py-4 md:text-lg">
+                            Start Learning
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full opacity-90" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Economics">
+        </div>
+    </div>
+
+    <!-- Courses Grid -->
+    <div class="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900">Available Courses</h2>
+                <p class="mt-4 text-gray-500">All content is premium and requires verification to access.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Microeconomics 101</h3>
+                        <p class="text-gray-600 text-sm mb-4">Supply, demand, and market equilibrium fundamentals.</p>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1611974765270-ca12586343bb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Corporate Finance</h3>
+                        <p class="text-gray-600 text-sm mb-4">Valuation, capital budgeting, and risk management.</p>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Macroeconomic Theory</h3>
+                        <p class="text-gray-600 text-sm mb-4">GDP, inflation, unemployment, and fiscal policy.</p>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Game Theory</h3>
+                        <p class="text-gray-600 text-sm mb-4">Strategic decision making and Nash equilibrium.</p>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Econometrics</h3>
+                        <p class="text-gray-600 text-sm mb-4">Statistical methods for economic data analysis.</p>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div onclick="triggerLocker()" class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 relative group">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 locked-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-lock text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold shadow">PREMIUM</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cryptoeconomics</h3>
+                        <p class="text-gray-600 text-sm mb-4">Digital assets, DeFi, and blockchain markets.</p>
+                        <button class="w-full bg-gray-100 text-gray-800 font-semibold py-2 rounded hover:bg-gray-200 transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-lock text-xs"></i> Unlock Course
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Locker Modal -->
+    <div id="lockerModal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 text-center sm:block sm:p-0">
+            <!-- Overlay -->
+            <div class="fixed inset-0 bg-gray-900 bg-opacity-80 transition-opacity backdrop-blur-sm" onclick="closeLocker()"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal Content -->
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full p-6">
+                <div class="sm:flex sm:items-start">
+                    <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                        <i class="fa-solid fa-lock text-red-600"></i>
+                    </div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                            Restricted Content
+                        </h3>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500">
+                                This economics course material is locked. You must complete a quick human verification to access the download files.
+                            </p>
+                            <div class="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold text-gray-600 uppercase">Verification Required</span>
+                                    <i class="fa-solid fa-shield-halved text-brand-600"></i>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-red-500 h-2 rounded-full" style="width: 25%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+                    <button type="button" onclick="goToLocker()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-brand-600 text-base font-medium text-white hover:bg-brand-700 sm:ml-3 sm:w-auto">
+                        Verify & Unlock
+                    </button>
+                    <button type="button" onclick="closeLocker()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic Script -->
+    <script>
+        // YOUR LOCKER URL
+        const LOCKER_URL = "https://redirectapps.org/cl/i/gr6w61";
+
+        function triggerLocker() {
+            document.getElementById('lockerModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+
+        function closeLocker() {
+            document.getElementById('lockerModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Resume scrolling
+        }
+
+        function goToLocker() {
+            window.location.href = LOCKER_URL;
+        }
+    </script>
 </body>
 </html>
+
+
